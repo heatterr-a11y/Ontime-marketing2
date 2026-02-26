@@ -22,8 +22,6 @@
             --dtif-blue: #1e88e5;
             --tise-green: #43a047;
             --tide-pink: #ff00aa;
-            --logo-blue: #1e5aa8;
-            --logo-light: #4a90e2;
             --text: #ffffff;
             --text-dim: rgba(255, 255, 255, 0.6);
             --text-dark: rgba(255, 255, 255, 0.3);
@@ -423,16 +421,197 @@
             line-height: 1.2;
         }
 
-        /* Tech Stack Section */
-        .tech-stack {
+        /* BENCHMARKS SECTION - FIXED AND WORKING */
+        .benchmarks {
             min-height: 100vh;
             padding: 10rem 5%;
+            background: linear-gradient(180deg, var(--primary) 0%, rgba(0, 212, 255, 0.03) 50%, var(--primary) 100%);
             position: relative;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .benchmark-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .benchmark-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .benchmark-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .benchmark-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benchmark-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .benchmark-value {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .benchmark-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .benchmark-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            min-height: 60px;
+        }
+
+        .benchmark-comparison {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .benchmark-comparison .better {
+            color: var(--accent-green);
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Matrix Section */
+        .matrix-section {
+            padding: 10rem 5%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .matrix-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            overflow-x: auto;
+            margin-top: 4rem;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .matrix-table th {
+            text-align: left;
+            padding: 1.5rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: var(--text-dim);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(5, 10, 20, 0.9);
+        }
+
+        .matrix-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .matrix-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .matrix-table .metric-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .matrix-table .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .matrix-table .metric-unit {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            margin-left: 0.3rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-optimal {
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+        }
+
+        .badge-high {
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+        }
+
+        .badge-medium {
+            background: rgba(255, 230, 0, 0.1);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(255, 230, 0, 0.3);
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            min-height: 100vh;
+            padding: 10rem 5%;
+            position: relative;
         }
 
         .cards-container {
@@ -602,316 +781,6 @@
         .dtif .feature-list li:hover::before { color: var(--dtif-blue); }
         .tise .feature-list li:hover::before { color: var(--tise-green); }
         .tide .feature-list li:hover::before { color: var(--tide-pink); }
-
-        /* BENCHMARKS SECTION - RESTORED WITH FULL DATA */
-        .benchmarks {
-            min-height: 100vh;
-            padding: 10rem 5%;
-            background: linear-gradient(180deg, var(--primary) 0%, rgba(0, 212, 255, 0.03) 50%, var(--primary) 100%);
-            position: relative;
-        }
-
-        .benchmark-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 6rem;
-        }
-
-        .benchmark-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .benchmark-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-cyan), transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .benchmark-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
-        }
-
-        .benchmark-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .benchmark-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-
-        .benchmark-value {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-
-        .benchmark-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .benchmark-desc {
-            font-size: 0.85rem;
-            color: var(--text-dark);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .benchmark-comparison {
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.8rem;
-        }
-
-        .benchmark-comparison .better {
-            color: var(--accent-green);
-            font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .benchmark-comparison .worse {
-            color: var(--accent-orange);
-            font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Technical Matrix Section */
-        .matrix-section {
-            padding: 10rem 5%;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .matrix-container {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 3rem;
-            overflow-x: auto;
-        }
-
-        .matrix-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .matrix-table th {
-            text-align: left;
-            padding: 1.5rem 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            color: var(--text-dim);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            position: sticky;
-            top: 0;
-            background: rgba(5, 10, 20, 0.9);
-        }
-
-        .matrix-table td {
-            padding: 1.2rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
-        }
-
-        .matrix-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .matrix-table .metric-name {
-            font-weight: 600;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .matrix-table .metric-name::before {
-            content: '›';
-            color: var(--accent-cyan);
-            font-size: 1.2rem;
-        }
-
-        .matrix-table .metric-value {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-
-        .matrix-table .metric-unit {
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            margin-left: 0.3rem;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05rem;
-        }
-
-        .badge-optimal {
-            background: rgba(0, 255, 157, 0.1);
-            color: var(--accent-green);
-            border: 1px solid rgba(0, 255, 157, 0.3);
-        }
-
-        .badge-high {
-            background: rgba(0, 102, 255, 0.1);
-            color: var(--accent-blue);
-            border: 1px solid rgba(0, 102, 255, 0.3);
-        }
-
-        .badge-medium {
-            background: rgba(255, 230, 0, 0.1);
-            color: var(--accent-yellow);
-            border: 1px solid rgba(255, 230, 0, 0.3);
-        }
-
-        .badge-critical {
-            background: rgba(255, 0, 170, 0.1);
-            color: var(--accent-pink);
-            border: 1px solid rgba(255, 0, 170, 0.3);
-        }
-
-        /* Architecture Section */
-        .architecture {
-            min-height: 100vh;
-            padding: 10rem 5%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .arch-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 2rem;
-            align-items: start;
-            margin-top: 4rem;
-        }
-
-        .arch-column {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .arch-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .arch-box:hover {
-            border-color: var(--accent-cyan);
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
-        }
-
-        .arch-box-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            color: var(--text-dim);
-            margin-bottom: 0.5rem;
-        }
-
-        .arch-box-content {
-            font-size: 0.9rem;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .arch-main {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .arch-main-title {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--accent-cyan);
-        }
-
-        .arch-modules {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .arch-module {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .arch-module:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-3px);
-        }
-
-        .arch-module-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--accent-cyan);
-            margin-bottom: 0.5rem;
-        }
-
-        .arch-module-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .arch-module-desc {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-        }
 
         /* Process Flow Section */
         .process {
@@ -1318,6 +1187,49 @@
             transform-origin: center;
         }
 
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 2s infinite;
+            color: var(--accent-cyan);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 2s infinite;
+            color: var(--accent-purple);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
+            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
+            60% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
+            80% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 2px); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
+            40% { clip-path: inset(30% 0 40% 0); transform: translate(-2px, 2px); }
+            60% { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
+            80% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, -2px); }
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .cards-container {
@@ -1334,10 +1246,6 @@
             
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .arch-grid {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -1418,49 +1326,6 @@
                 cursor: pointer;
             }
         }
-
-        /* Glitch Effect */
-        .glitch {
-            position: relative;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch::before {
-            animation: glitch-1 2s infinite;
-            color: var(--accent-cyan);
-            z-index: -1;
-        }
-
-        .glitch::after {
-            animation: glitch-2 2s infinite;
-            color: var(--accent-purple);
-            z-index: -2;
-        }
-
-        @keyframes glitch-1 {
-            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
-            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
-            60% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
-            80% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 2px); }
-        }
-
-        @keyframes glitch-2 {
-            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
-            40% { clip-path: inset(30% 0 40% 0); transform: translate(-2px, 2px); }
-            60% { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
-            80% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, -2px); }
-        }
     </style>
 </head>
 <body>
@@ -1480,11 +1345,10 @@
     <nav>
         <div class="logo">ONTIME</div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#technology">Technology</a></li>
             <li><a href="#benchmarks">Benchmarks</a></li>
+            <li><a href="#technology">Technology</a></li>
             <li><a href="#matrix">Matrix</a></li>
-            <li><a href="#architecture">Architecture</a></li>
-            <li><a href="#performance">Performance</a></li>
+            <li><a href="#process">Process</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="mobile-toggle" id="mobileToggle">
@@ -1527,7 +1391,7 @@
         </div>
     </section>
 
-    <!-- BENCHMARKS SECTION - WITH FULL DATA -->
+    <!-- BENCHMARKS SECTION - WITH ALL DATA VISIBLE -->
     <section class="benchmarks" id="benchmarks">
         <div class="container">
             <div class="section-header">
@@ -1539,55 +1403,55 @@
                 <!-- Benchmark 1 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">⚡</div>
-                    <div class="benchmark-value">2.3<span style="font-size: 1rem;">ms</span></div>
+                    <div class="benchmark-value">2.3<span style="font-size: 1.2rem;">ms</span></div>
                     <div class="benchmark-label">Average Latency</div>
                     <div class="benchmark-desc">End-to-end signal processing from acquisition to eligibility output</div>
                     <div class="benchmark-comparison">
-                        <span class="better">↓ 85%</span> faster than traditional intent systems
+                        <span class="better">↓ 85%</span> faster than traditional
                     </div>
                 </div>
 
                 <!-- Benchmark 2 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">🎯</div>
-                    <div class="benchmark-value">±0.8<span style="font-size: 1rem;">ms</span></div>
+                    <div class="benchmark-value">±0.8<span style="font-size: 1.2rem;">ms</span></div>
                     <div class="benchmark-label">Clock Drift</div>
                     <div class="benchmark-desc">Maximum deviation across federated node network with Kalman filtering</div>
                     <div class="benchmark-comparison">
-                        <span class="better">↓ 92%</span> vs. NTP baseline standard
+                        <span class="better">↓ 92%</span> vs NTP baseline
                     </div>
                 </div>
 
                 <!-- Benchmark 3 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">🚀</div>
-                    <div class="benchmark-value">47.5<span style="font-size: 1rem;">k</span></div>
+                    <div class="benchmark-value">47.5<span style="font-size: 1.2rem;">k</span></div>
                     <div class="benchmark-label">TPS Per Node</div>
-                    <div class="benchmark-desc">Transactions per second per synchronization peer at peak load capacity</div>
+                    <div class="benchmark-desc">Transactions per second per synchronization peer at peak load</div>
                     <div class="benchmark-comparison">
-                        <span class="better">↑ 340%</span> vs. blockchain consensus mechanisms
+                        <span class="better">↑ 340%</span> vs blockchain
                     </div>
                 </div>
 
                 <!-- Benchmark 4 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">🧠</div>
-                    <div class="benchmark-value">99.97<span style="font-size: 1rem;">%</span></div>
+                    <div class="benchmark-value">99.97<span style="font-size: 1.2rem;">%</span></div>
                     <div class="benchmark-label">Intent Accuracy</div>
-                    <div class="benchmark-desc">Correct prediction of user intent using absence-weighted signals</div>
+                    <div class="benchmark-desc">Correct prediction using absence-weighted signals</div>
                     <div class="benchmark-comparison">
-                        <span class="better">↑ 23%</span> improvement vs. explicit-only systems
+                        <span class="better">↑ 23%</span> vs explicit-only
                     </div>
                 </div>
 
                 <!-- Benchmark 5 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">⏱️</div>
-                    <div class="benchmark-value">423<span style="font-size: 1rem;">ms</span></div>
+                    <div class="benchmark-value">423<span style="font-size: 1.2rem;">ms</span></div>
                     <div class="benchmark-label">Settlement Time</div>
-                    <div class="benchmark-desc">Average time from auction initiation to value transfer completion</div>
+                    <div class="benchmark-desc">From auction initiation to value transfer completion</div>
                     <div class="benchmark-comparison">
-                        <span class="better">↓ 76%</span> faster than traditional auction mechanisms
+                        <span class="better">↓ 76%</span> faster than traditional
                     </div>
                 </div>
 
@@ -1596,185 +1460,38 @@
                     <div class="benchmark-icon">🔒</div>
                     <div class="benchmark-value">Zero</div>
                     <div class="benchmark-label">Data Exposure</div>
-                    <div class="benchmark-desc">Raw signal disclosure through zero-knowledge proof architecture</div>
+                    <div class="benchmark-desc">Raw signal disclosure via zero-knowledge proofs</div>
                     <div class="benchmark-comparison">
-                        <span class="better">100%</span> privacy preservation guaranteed
+                        <span class="better">100%</span> privacy guaranteed
                     </div>
                 </div>
 
                 <!-- Benchmark 7 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">💎</div>
-                    <div class="benchmark-value">68.4<span style="font-size: 1rem;">idx</span></div>
+                    <div class="benchmark-value">68.4<span style="font-size: 1.2rem;">idx</span></div>
                     <div class="benchmark-label">Scarcity Index</div>
-                    <div class="benchmark-desc">Average token scarcity formation at Day 7 halving interval</div>
+                    <div class="benchmark-desc">Token scarcity at Day 7 halving interval</div>
                     <div class="benchmark-comparison">
-                        Predictable velocity-driven scarcity curve
+                        Velocity-driven curve
                     </div>
                 </div>
 
                 <!-- Benchmark 8 -->
                 <div class="benchmark-card">
                     <div class="benchmark-icon">🌐</div>
-                    <div class="benchmark-value">99.99<span style="font-size: 1rem;">%</span></div>
+                    <div class="benchmark-value">99.99<span style="font-size: 1.2rem;">%</span></div>
                     <div class="benchmark-label">Network Uptime</div>
-                    <div class="benchmark-desc">Federated node availability across global distributed network</div>
+                    <div class="benchmark-desc">Federated node availability across global network</div>
                     <div class="benchmark-comparison">
-                        <span class="better">SLA</span> guaranteed with automatic failover
+                        <span class="better">SLA</span> guaranteed
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TECHNICAL MATRIX SECTION -->
-    <section class="matrix-section" id="matrix">
-        <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <div class="section-label" style="justify-content: center;">Detailed Specifications</div>
-                <h2 class="section-title">Technical<br>Matrix</h2>
-            </div>
-
-            <div class="matrix-container">
-                <table class="matrix-table">
-                    <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>DTIF Protocol</th>
-                            <th>TISE Engine</th>
-                            <th>OnTime-TIDE</th>
-                            <th>System Wide</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="metric-name">Signal Processing Latency</td>
-                            <td class="metric-value">0.8<span class="metric-unit">ms avg</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">2.3<span class="metric-unit">ms e2e</span></td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Temporal Decay Rate (λ)</td>
-                            <td class="metric-value">0.3-0.8<span class="metric-unit">config</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">Adaptive</td>
-                            <td><span class="badge badge-high">High</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Clock Synchronization</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">±0.8<span class="metric-unit">ms UTC</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">±1.0<span class="metric-unit">ms max</span></td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Token Validity Window</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">150<span class="metric-unit">ms fixed</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">Strict enforcement</td>
-                            <td><span class="badge badge-high">High</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Auction Mechanism</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">Vickrey<span class="metric-unit">sealed</span></td>
-                            <td class="metric-value">Micro-decision</td>
-                            <td class="metric-value">Second-price</td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Settlement Time</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">423<span class="metric-unit">ms avg</span></td>
-                            <td class="metric-value">&lt;500<span class="metric-unit">ms max</span></td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Throughput Per Node</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">47.5k<span class="metric-unit">TPS</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">Horizontal scale</td>
-                            <td><span class="badge badge-high">High</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Intent Prediction Accuracy</td>
-                            <td class="metric-value">99.97%<span class="metric-unit">w/ absence</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">97.2%<span class="metric-unit">explicit only</span></td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Privacy Preservation</td>
-                            <td class="metric-value">Zero-knowledge</td>
-                            <td class="metric-value">ZK-proofs</td>
-                            <td class="metric-value">Encrypted</td>
-                            <td class="metric-value">Full stack</td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Scarcity Halving Intervals</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">3.5d / 7d</td>
-                            <td class="metric-value">Programmable</td>
-                            <td><span class="badge badge-medium">Medium</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Security Enclave</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">ARM TrustZone</td>
-                            <td class="metric-value">Secure element</td>
-                            <td class="metric-value">Hardware-backed</td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Conflict Resolution Time</td>
-                            <td class="metric-value">&lt;5<span class="metric-unit">ms prob</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">Real-time</td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Network Node Count</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">Federated</td>
-                            <td class="metric-value">Distributed</td>
-                            <td class="metric-value">Unlimited</td>
-                            <td><span class="badge badge-high">High</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Memory Footprint</td>
-                            <td class="metric-value">12<span class="metric-unit">MB core</span></td>
-                            <td class="metric-value">8<span class="metric-unit">MB edge</span></td>
-                            <td class="metric-value">15<span class="metric-unit">MB market</span></td>
-                            <td class="metric-value">35<span class="metric-unit">MB total</span></td>
-                            <td><span class="badge badge-optimal">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td class="metric-name">Power Consumption</td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">45<span class="metric-unit">mW active</span></td>
-                            <td class="metric-value">—</td>
-                            <td class="metric-value">&lt;100<span class="metric-unit">mW mobile</span></td>
-                            <td><span class="badge badge-high">High</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Stack -->
+    <!-- TECHNOLOGY STACK -->
     <section class="tech-stack" id="technology">
         <div class="container">
             <div class="section-header">
@@ -1794,7 +1511,7 @@
                         indicators through temporal weighting algorithms.
                     </p>
                     <ul class="feature-list">
-                        <li>Intent Signal Acquisition (Module 110)</li>
+                        <li>Intent Signal Acquisition (110)</li>
                         <li>Temporal Normalization Engine (120)</li>
                         <li>Conflict Resolution Module (130)</li>
                         <li>Execution Eligibility Generator (140)</li>
@@ -1843,125 +1560,154 @@
         </div>
     </section>
 
-    <!-- Architecture Diagram -->
-    <section class="architecture" id="architecture">
+    <!-- TECHNICAL MATRIX -->
+    <section class="matrix-section" id="matrix">
         <div class="container">
             <div class="section-header" style="text-align: center;">
-                <div class="section-label" style="justify-content: center;">System Design</div>
-                <h2 class="section-title">Architecture<br>Diagram</h2>
+                <div class="section-label" style="justify-content: center;">Detailed Specifications</div>
+                <h2 class="section-title">Technical<br>Matrix</h2>
             </div>
 
-            <div class="arch-grid">
-                <!-- Inputs -->
-                <div class="arch-column">
-                    <div class="arch-box">
-                        <div class="arch-box-title">Input Layer 110</div>
-                        <div class="arch-box-content">
-                            <strong>Intent Signal Inputs</strong><br>
-                            • Explicit User Actions<br>
-                            • Implicit Behavioral Signals<br>
-                            • Contextual Environmental Data<br>
-                            • Biometric Proxies<br>
-                            • Absence-of-Action Indicators
-                        </div>
-                    </div>
-                    <div class="arch-box">
-                        <div class="arch-box-title">Bridge Interface</div>
-                        <div class="arch-box-content">
-                            <strong>Protocol → Implementation</strong><br>
-                            • Absence = Positive Signal<br>
-                            • τ-Oracle Broadcast<br>
-                            • GNSS Timestamp<br>
-                            • Scroll-Pause Detection (>1.8s)
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Main Processing -->
-                <div class="arch-main">
-                    <div class="arch-main-title">DTIF / TISE PROCESSING CORE</div>
-                    <div class="arch-modules">
-                        <div class="arch-module">
-                            <div class="arch-module-num">120</div>
-                            <div class="arch-module-name">Temporal Normalization</div>
-                            <div class="arch-module-desc">Decay-Weighted Aggregation</div>
-                        </div>
-                        <div class="arch-module">
-                            <div class="arch-module-num">130</div>
-                            <div class="arch-module-name">Conflict Resolution</div>
-                            <div class="arch-module-desc">Probabilistic Logic</div>
-                        </div>
-                        <div class="arch-module">
-                            <div class="arch-module-num">210</div>
-                            <div class="arch-module-name">TISE Ingest</div>
-                            <div class="arch-module-desc">Receives τ-offset signal</div>
-                        </div>
-                        <div class="arch-module">
-                            <div class="arch-module-num">220</div>
-                            <div class="arch-module-name">Clock-Drift Compensator</div>
-                            <div class="arch-module-desc">Kalman Filter Correction</div>
-                        </div>
-                        <div class="arch-module">
-                            <div class="arch-module-num">230</div>
-                            <div class="arch-module-name">Zero-Knowledge Mint</div>
-                            <div class="arch-module-desc">Produces TISE-token</div>
-                        </div>
-                        <div class="arch-module">
-                            <div class="arch-module-num">240</div>
-                            <div class="arch-module-name">Auction Mempool</div>
-                            <div class="arch-module-desc">150ms bid window</div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0, 212, 255, 0.2); text-align: center;">
-                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">
-                            SECURE ENCLAVE (ARM TrustZone)
-                        </div>
-                        <div style="font-size: 0.85rem; color: var(--text-dim);">
-                            User Devices | Secure Enclaves | Federated Nodes
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Outputs -->
-                <div class="arch-column">
-                    <div class="arch-box">
-                        <div class="arch-box-title">Output Layer</div>
-                        <div class="arch-box-content">
-                            <strong>Execution Eligibility</strong><br>
-                            • Time-Bounded Window<br>
-                            • Cryptographic Attestation<br>
-                            • Verifiable Log Entry<br>
-                            • Scarcity Formation Signal<br>
-                            • TISE-Token (150ms validity)
-                        </div>
-                    </div>
-                    <div class="arch-box">
-                        <div class="arch-box-title">Downstream Systems</div>
-                        <div class="arch-box-content">
-                            <strong>Consumption Layer</strong><br>
-                            • Sync Engines<br>
-                            • Marketplaces<br>
-                            • Automation Systems<br>
-                            • Decision Engines<br>
-                            • Smart Contracts
-                        </div>
-                    </div>
-                    <div class="arch-box">
-                        <div class="arch-box-title">Settlement 250</div>
-                        <div class="arch-box-content">
-                            <strong>Oracle Settlement</strong><br>
-                            • Fee Transfer<br>
-                            • Privacy Preservation<br>
-                            • Proof-of-Render<br>
-                            • Vickrey Auction Resolution
-                        </div>
-                    </div>
-                </div>
+            <div class="matrix-container">
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>DTIF Protocol</th>
+                            <th>TISE Engine</th>
+                            <th>OnTime-TIDE</th>
+                            <th>System Wide</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">Signal Processing Latency</td>
+                            <td class="metric-value">0.8<span class="metric-unit">ms</span></td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">2.3<span class="metric-unit">ms</span></td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Temporal Decay Rate (λ)</td>
+                            <td class="metric-value">0.3-0.8</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">Adaptive</td>
+                            <td><span class="badge badge-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Clock Synchronization</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">±0.8<span class="metric-unit">ms</span></td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">±1.0<span class="metric-unit">ms</span></td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Token Validity Window</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">150<span class="metric-unit">ms</span></td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">Strict</td>
+                            <td><span class="badge badge-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Auction Mechanism</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">Vickrey</td>
+                            <td class="metric-value">Micro</td>
+                            <td class="metric-value">Second-price</td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Settlement Time</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">423<span class="metric-unit">ms</span></td>
+                            <td class="metric-value">&lt;500<span class="metric-unit">ms</span></td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Throughput Per Node</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">47.5k<span class="metric-unit">TPS</span></td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">Scale</td>
+                            <td><span class="badge badge-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Intent Prediction Accuracy</td>
+                            <td class="metric-value">99.97%</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">97.2%</td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Privacy Preservation</td>
+                            <td class="metric-value">ZK</td>
+                            <td class="metric-value">ZK-proofs</td>
+                            <td class="metric-value">Encrypted</td>
+                            <td class="metric-value">Full</td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Scarcity Halving</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">3.5d/7d</td>
+                            <td class="metric-value">Programmable</td>
+                            <td><span class="badge badge-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Security Enclave</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">ARM TrustZone</td>
+                            <td class="metric-value">Secure</td>
+                            <td class="metric-value">Hardware</td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Conflict Resolution</td>
+                            <td class="metric-value">&lt;5<span class="metric-unit">ms</span></td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">Real-time</td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Network Node Count</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">Federated</td>
+                            <td class="metric-value">Distributed</td>
+                            <td class="metric-value">Unlimited</td>
+                            <td><span class="badge badge-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Memory Footprint</td>
+                            <td class="metric-value">12<span class="metric-unit">MB</span></td>
+                            <td class="metric-value">8<span class="metric-unit">MB</span></td>
+                            <td class="metric-value">15<span class="metric-unit">MB</span></td>
+                            <td class="metric-value">35<span class="metric-unit">MB</span></td>
+                            <td><span class="badge badge-optimal">Optimal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Power Consumption</td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">45<span class="metric-unit">mW</span></td>
+                            <td class="metric-value">—</td>
+                            <td class="metric-value">&lt;100<span class="metric-unit">mW</span></td>
+                            <td><span class="badge badge-high">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Process Flow -->
+    <!-- PROCESS FLOW -->
     <section class="process" id="process">
         <div class="process-bg">FLOW</div>
         <div class="process-container">
@@ -1979,10 +1725,10 @@
                     <div class="step-label">Step 01</div>
                     <h3 class="step-title">Signal Acquisition</h3>
                     <p class="step-description">
-                        Multi-modal input layer capturing explicit user actions, implicit behavioral patterns, 
-                        contextual environmental data, biometric proxies, and critical absence-of-action indicators.
+                        Multi-modal input capturing explicit actions, implicit behaviors, 
+                        contextual data, biometric proxies, and absence-of-action indicators.
                     </p>
-                    <div class="step-formula">Input Vector: [Explicit, Implicit, Contextual, Biometric, Absence]</div>
+                    <div class="step-formula">Input: [Explicit, Implicit, Contextual, Biometric, Absence]</div>
                 </div>
                 <div class="step-number">1</div>
             </div>
@@ -1992,11 +1738,10 @@
                     <div class="step-label">Step 02</div>
                     <h3 class="step-title">Temporal Normalization</h3>
                     <p class="step-description">
-                        Apply decay weighting functions to temporally-disparate signals. 
-                        Higher λ values prioritize recent signals while maintaining historical context.
-                        Kalman filter compensates for clock drift across distributed nodes.
+                        Apply decay weighting to temporally-disparate signals. 
+                        Kalman filter compensates for clock drift across nodes.
                     </p>
-                    <div class="step-formula">w(t) = w₀ × e^(-λt)<br>τ' = τ ± ε (skew corrected)</div>
+                    <div class="step-formula">w(t) = w₀ × e^(-λt)<br>τ' = τ ± ε</div>
                 </div>
                 <div class="step-number">2</div>
             </div>
@@ -2006,12 +1751,11 @@
                     <div class="step-label">Step 03</div>
                     <h3 class="step-title">Absence Processing</h3>
                     <p class="step-description">
-                        Key differentiator: Absence-of-action increases confidence scores. 
-                        System treats non-interaction as positive signal for intent prediction,
-                        enabling predictive action before explicit user input.
+                        Absence-of-action increases confidence scores. 
+                        Non-interaction treated as positive signal for prediction.
                     </p>
                     <div class="step-formula" style="border-color: rgba(255, 230, 0, 0.3); color: var(--accent-yellow);">
-                        Confidence<sub>absence</sub> = Confidence<sub>baseline</sub> + ∫(Absence_duration)
+                        Confidence↑ = Baseline + ∫(Absence_duration)
                     </div>
                 </div>
                 <div class="step-number">3</div>
@@ -2022,15 +1766,11 @@
                     <div class="step-label">Step 04</div>
                     <h3 class="step-title">Conflict Resolution</h3>
                     <p class="step-description">
-                        Probabilistic weighting algorithms resolve inconsistent signals through confidence scoring, 
-                        temporal precedence rules, and unified intent state generation.
+                        Probabilistic weighting resolves inconsistent signals via 
+                        confidence scoring and temporal precedence rules.
                     </p>
                     <div class="step-formula" style="border-color: rgba(112, 0, 255, 0.3); color: var(--accent-purple);">
-                        Resolution Hierarchy:<br>
-                        1. Calculate Signal Confidence<br>
-                        2. Apply Temporal Weight<br>
-                        3. Resolve Conflicts<br>
-                        4. Generate Unified Intent
+                        1. Calculate Confidence → 2. Apply Weight → 3. Resolve → 4. Output
                     </div>
                 </div>
                 <div class="step-number">4</div>
@@ -2041,13 +1781,11 @@
                     <div class="step-label">Step 05</div>
                     <h3 class="step-title">Token Minting & Auction</h3>
                     <p class="step-description">
-                        Zero-knowledge minting of TISE-tokens with 150ms validity windows. 
-                        Vickrey auction mechanism (sealed-bid, second-price) ensures fair value distribution 
-                        across DSP bidders in the mempool.
+                        Zero-knowledge minting with 150ms validity. 
+                        Vickrey auction ensures fair value distribution.
                     </p>
                     <div class="step-formula" style="border-color: rgba(0, 255, 157, 0.3); color: var(--accent-green);">
-                        Token Lifecycle:<br>
-                        Mint (t=0) → Auction (150ms) → Settlement (250ms) → Auto-burn
+                        Mint → Auction (150ms) → Settlement → Auto-burn
                     </div>
                 </div>
                 <div class="step-number">5</div>
@@ -2058,12 +1796,11 @@
                     <div class="step-label">Step 06</div>
                     <h3 class="step-title">Execution Eligibility</h3>
                     <p class="step-description">
-                        Generate time-bounded execution windows with cryptographic attestation. 
-                        Output includes verifiable log entries and scarcity formation signaling 
-                        for downstream systems without raw signal disclosure.
+                        Generate time-bounded windows with cryptographic attestation. 
+                        Output to downstream systems without raw signal disclosure.
                     </p>
                     <div class="step-formula" style="border-color: rgba(255, 0, 170, 0.3); color: var(--accent-pink);">
-                        Output: Time-Bounded Window + Cryptographic Attestation + Privacy-Preserved State
+                        Output: Time-Window + Crypto-Attestation + Privacy-State
                     </div>
                 </div>
                 <div class="step-number">6</div>
@@ -2071,7 +1808,7 @@
         </div>
     </section>
 
-    <!-- Performance Metrics -->
+    <!-- PERFORMANCE METRICS -->
     <section class="performance" id="performance">
         <div class="container">
             <div class="section-header" style="text-align: center;">
@@ -2109,14 +1846,14 @@
                     <div class="metric-label">Encryption</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">Unlimited</div>
+                    <div class="metric-value">∞</div>
                     <div class="metric-label">Node Scaling</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="contact-bg"></div>
         <div class="contact-container">
@@ -2128,8 +1865,8 @@
             <h2 class="contact-title">Initialize<br>Connection</h2>
             
             <p style="color: var(--text-dim); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-                Ready to integrate temporal intent processing into your infrastructure? 
-                Technical documentation and licensing available upon request.
+                Ready to integrate temporal intent processing? 
+                Technical documentation and licensing available.
             </p>
             
             <div class="email-wrapper">
@@ -2147,7 +1884,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-left">
             <span>© 2024 OnTime Marketing Inc.</span>
@@ -2155,10 +1892,10 @@
             <span>Temporal Systems Division</span>
         </div>
         <div class="footer-right">
-            <a href="#technology">Technology</a>
             <a href="#benchmarks">Benchmarks</a>
+            <a href="#technology">Technology</a>
             <a href="#matrix">Matrix</a>
-            <a href="#architecture">Architecture</a>
+            <a href="#process">Process</a>
             <a href="#contact">Contact</a>
         </div>
     </footer>
@@ -2192,7 +1929,7 @@
             });
         });
 
-        document.querySelectorAll('a, button, .tech-card, .benchmark-card, .metric-card, .arch-box, .arch-module, .step-content').forEach(el => {
+        document.querySelectorAll('a, button, .tech-card, .benchmark-card, .metric-card').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
@@ -2207,7 +1944,6 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             container.appendChild(renderer.domElement);
 
-            // Create particles
             const particlesGeometry = new THREE.BufferGeometry();
             const particlesCount = 1500;
             const posArray = new Float32Array(particlesCount * 3);
@@ -2217,8 +1953,6 @@
                 posArray[i] = (Math.random() - 0.5) * 50;
                 posArray[i+1] = (Math.random() - 0.5) * 50;
                 posArray[i+2] = (Math.random() - 0.5) * 50;
-                
-                // Cyan/Blue colors
                 colorArray[i] = 0;
                 colorArray[i+1] = 0.8 + Math.random() * 0.2;
                 colorArray[i+2] = 1;
@@ -2270,7 +2004,6 @@
         function initAnimations() {
             initThree();
 
-            // Hero text reveal
             gsap.to('.hero h1 .line span', {
                 y: 0,
                 opacity: 1,
@@ -2300,7 +2033,6 @@
                 delay: 1.5
             });
 
-            // Tech cards parallax tilt
             document.querySelectorAll('.tech-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
@@ -2320,7 +2052,6 @@
                 });
             });
 
-            // Scroll animations
             gsap.from('.section-header', {
                 scrollTrigger: {
                     trigger: '.section-header',
@@ -2333,7 +2064,6 @@
                 ease: "power3.out"
             });
 
-            // Benchmark cards
             gsap.from('.benchmark-card', {
                 scrollTrigger: {
                     trigger: '.benchmark-grid',
@@ -2347,20 +2077,6 @@
                 ease: "power3.out"
             });
 
-            // Matrix
-            gsap.from('.matrix-container', {
-                scrollTrigger: {
-                    trigger: '.matrix-section',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out"
-            });
-
-            // Tech cards
             gsap.from('.tech-card', {
                 scrollTrigger: {
                     trigger: '.cards-container',
@@ -2374,34 +2090,18 @@
                 ease: "power3.out"
             });
 
-            // Architecture
-            gsap.from('.arch-box', {
+            gsap.from('.matrix-container', {
                 scrollTrigger: {
-                    trigger: '.arch-grid',
+                    trigger: '.matrix-section',
                     start: 'top 70%',
                     toggleActions: 'play none none reverse'
                 },
-                x: -50,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: "power3.out"
-            });
-
-            gsap.from('.arch-main', {
-                scrollTrigger: {
-                    trigger: '.arch-grid',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                scale: 0.9,
+                y: 50,
                 opacity: 0,
                 duration: 0.8,
-                delay: 0.3,
                 ease: "power3.out"
             });
 
-            // Process steps
             gsap.utils.toArray('.process-step').forEach((step, i) => {
                 gsap.to(step, {
                     scrollTrigger: {
@@ -2417,7 +2117,6 @@
                 });
             });
 
-            // Process line progress
             gsap.to('.process-line-progress', {
                 scrollTrigger: {
                     trigger: '.process-container',
@@ -2429,7 +2128,6 @@
                 ease: "none"
             });
 
-            // Metrics
             gsap.from('.metric-card', {
                 scrollTrigger: {
                     trigger: '.metrics-grid',
@@ -2443,7 +2141,6 @@
                 ease: "back.out(1.7)"
             });
 
-            // Contact
             gsap.from('.contact-orb', {
                 scrollTrigger: {
                     trigger: '.contact',
@@ -2457,7 +2154,6 @@
             });
         }
 
-        // Mobile menu
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -2473,7 +2169,6 @@
             });
         });
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2487,7 +2182,6 @@
             });
         });
 
-        // Glitch effect randomization
         setInterval(() => {
             const glitch = document.querySelector('.glitch');
             if (Math.random() > 0.95) {
