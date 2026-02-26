@@ -1391,7 +1391,7 @@
         </div>
     </section>
 
-<!-- BENCHMARKS SECTION - FIXED -->
+<!-- BENCHMARKS SECTION -->
 <section class="benchmarks" id="benchmarks">
     <div class="container">
         <div class="section-header">
@@ -1400,10 +1400,9 @@
         </div>
 
         <div class="benchmark-grid">
-            <!-- Benchmark 1: Latency -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">⚡</div>
-                <div class="benchmark-value">2.3<span style="font-size: 1.2rem;">ms</span></div>
+                <div class="benchmark-value">2.3<span>ms</span></div>
                 <div class="benchmark-label">Average Latency</div>
                 <div class="benchmark-desc">End-to-end signal processing from acquisition to eligibility output</div>
                 <div class="benchmark-comparison">
@@ -1411,10 +1410,9 @@
                 </div>
             </div>
 
-            <!-- Benchmark 2: Clock Drift -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">🎯</div>
-                <div class="benchmark-value">±0.8<span style="font-size: 1.2rem;">ms</span></div>
+                <div class="benchmark-value">±0.8<span>ms</span></div>
                 <div class="benchmark-label">Clock Drift</div>
                 <div class="benchmark-desc">Maximum deviation across federated node network with Kalman filtering</div>
                 <div class="benchmark-comparison">
@@ -1422,10 +1420,9 @@
                 </div>
             </div>
 
-            <!-- Benchmark 3: TPS -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">🚀</div>
-                <div class="benchmark-value">47.5<span style="font-size: 1.2rem;">k</span></div>
+                <div class="benchmark-value">47.5<span>k</span></div>
                 <div class="benchmark-label">TPS Per Node</div>
                 <div class="benchmark-desc">Transactions per second per synchronization peer at peak load</div>
                 <div class="benchmark-comparison">
@@ -1433,10 +1430,9 @@
                 </div>
             </div>
 
-            <!-- Benchmark 4: Accuracy -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">🧠</div>
-                <div class="benchmark-value">99.97<span style="font-size: 1.2rem;">%</span></div>
+                <div class="benchmark-value">99.97<span>%</span></div>
                 <div class="benchmark-label">Intent Accuracy</div>
                 <div class="benchmark-desc">Correct prediction using absence-weighted signals</div>
                 <div class="benchmark-comparison">
@@ -1444,10 +1440,9 @@
                 </div>
             </div>
 
-            <!-- Benchmark 5: Settlement -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">⏱️</div>
-                <div class="benchmark-value">423<span style="font-size: 1.2rem;">ms</span></div>
+                <div class="benchmark-value">423<span>ms</span></div>
                 <div class="benchmark-label">Settlement Time</div>
                 <div class="benchmark-desc">From auction initiation to value transfer completion</div>
                 <div class="benchmark-comparison">
@@ -1455,7 +1450,6 @@
                 </div>
             </div>
 
-            <!-- Benchmark 6: Privacy (FIXED) -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">🔒</div>
                 <div class="benchmark-value">Zero</div>
@@ -1466,10 +1460,9 @@
                 </div>
             </div>
 
-            <!-- Benchmark 7: Scarcity (FIXED) -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">💎</div>
-                <div class="benchmark-value">68.4<span style="font-size: 1.2rem;">idx</span></div>
+                <div class="benchmark-value">68.4<span>idx</span></div>
                 <div class="benchmark-label">Scarcity Index</div>
                 <div class="benchmark-desc">Token scarcity at Day 7 halving interval</div>
                 <div class="benchmark-comparison">
@@ -1477,10 +1470,9 @@
                 </div>
             </div>
 
-            <!-- Benchmark 8: Uptime (FIXED) -->
             <div class="benchmark-card">
                 <div class="benchmark-icon">🌐</div>
-                <div class="benchmark-value">99.99<span style="font-size: 1.2rem;">%</span></div>
+                <div class="benchmark-value">99.99<span>%</span></div>
                 <div class="benchmark-label">Network Uptime</div>
                 <div class="benchmark-desc">Federated node availability across global network</div>
                 <div class="benchmark-comparison">
@@ -2062,19 +2054,6 @@
                 y: 50,
                 opacity: 0,
                 duration: 1,
-                ease: "power3.out"
-            });
-
-            gsap.from('.benchmark-card', {
-                scrollTrigger: {
-                    trigger: '.benchmark-grid',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 100,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.1,
                 ease: "power3.out"
             });
 
