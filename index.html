@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnTime Marketing Inc. | Temporal Intent Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #1e3a5f;
+            --accent: #00d4ff;
+            --accent-glow: rgba(0, 212, 255, 0.3);
+            --dtif-blue: #1e88e5;
+            --tise-green: #43a047;
+            --tide-purple: #7e57c2;
+            --text: #e0e6ed;
+            --text-muted: #8b9dc3;
+            --gradient-1: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%);
+            --gradient-2: linear-gradient(135deg, #1e88e5 0%, #00d4ff 100%);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--primary);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(30, 136, 229, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(126, 87, 194, 0.1) 0%, transparent 40%);
+            animation: pulse 20s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-2%, -2%) scale(1.05); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '◆';
+            font-size: 1.2rem;
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--glass);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glass);
+            border-color: var(--accent);
+        }
+
+        /* Tech Stack Visualization */
+        .tech-stack {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .stack-card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .stack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-2);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .stack-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stack-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stack-card.dtif::before { background: var(--dtif-blue); }
+        .stack-card.tise::before { background: var(--tise-green); }
+        .stack-card.tide::before { background: var(--tide-purple); }
+
+        .stack-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .dtif .stack-icon { color: var(--dtif-blue); border: 2px solid var(--dtif-blue); }
+        .tise .stack-icon { color: var(--tise-green); border: 2px solid var(--tise-green); }
+        .tide .stack-icon { color: var(--tide-purple); border: 2px solid var(--tide-purple); }
+
+        .stack-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .stack-card .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Architecture Flow */
+        .architecture {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .flow-item {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .flow-item:not(:last-child)::after {
+            content: '↓';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(5px); }
+        }
+
+        .flow-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .flow-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Technical Specs */
+        .specs {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-item {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .spec-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .spec-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: var(--glass);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 1.5rem 0;
+            padding: 1rem 2rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .email-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 6rem 2rem;
+                transition: right 0.3s;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero {
+                padding: 7rem 5% 3rem;
+            }
+
+            .flow-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="logo">OnTime Marketing</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">IP Portfolio: 3 Patent-Pending Systems</div>
+            <h1>Temporal Intent Technology</h1>
+            <p class="hero-subtitle">
+                Decentralized frameworks for real-time intent synchronization, 
+                decision optimization, and automated value execution across distributed systems.
+            </p>
+            <div class="hero-cta">
+                <a href="#technology" class="btn btn-primary">Explore Technology</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack" id="technology">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Core IP Assets</h2>
+                <p>Three-layer temporal intent processing stack enabling real-time decision intelligence</p>
+            </div>
+            
+            <div class="stack-grid">
+                <div class="stack-card dtif fade-in">
+                    <div class="stack-icon">DTIF</div>
+                    <h3>DTIF</h3>
+                    <div class="subtitle">Decentralized Temporal Intent Framework</div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                        Foundational protocol layer for intent signal processing, temporal normalization, 
+                        and conflict resolution across distributed ledgers.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Intent Signal Processing</li>
+                        <li>Temporal Weighting Engine</li>
+                        <li>Probabilistic Conflict Resolution</li>
+                        <li>Privacy-Preserving Ledger</li>
+                        <li>Absence-as-Signal Detection</li>
+                    </ul>
+                </div>
+
+                <div class="stack-card tise fade-in">
+                    <div class="stack-icon">TISE</div>
+                    <h3>TISE</h3>
+                    <div class="subtitle">Temporal Intent Synchronization Engine</div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                        Edge-device implementation providing real-time intent synchronization 
+                        with clock-drift compensation and zero-knowledge attestation.
+                    </p>
+                    <ul class="feature-list">
+                        <li>150ms Token Validity Windows</li>
+                        <li>Clock-Drift Compensation</li>
+                        <li>Zero-Knowledge Minting</li>
+                        <li>Vickrey Auction Mempool</li>
+                        <li>Proof-of-Render Consensus</li>
+                    </ul>
+                </div>
+
+                <div class="stack-card tide fade-in">
+                    <div class="stack-icon">TIDE</div>
+                    <h3>OnTime-TIDE</h3>
+                    <div class="subtitle">Temporal Intent Decision Engine</div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                        On-device marketplace for micro-decision auctions, value execution, 
+                        and automated action orchestration.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Micro-Decision Auctions</li>
+                        <li>Automated Value Execution</li>
+                        <li>Intent Marketplace</li>
+                        <li>Smart Contract Integration</li>
+                        <li>Real-time Settlement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>System Architecture</h2>
+                <p>Signal flow from input acquisition to execution eligibility</p>
+            </div>
+            
+            <div class="flow-diagram">
+                <div class="flow-item fade-in">
+                    <div class="flow-number">1</div>
+                    <div class="flow-content">
+                        <h4>Signal Acquisition</h4>
+                        <p>Receive temporally-disparate intent signals: Explicit actions, implicit behavioral patterns, 
+                        contextual environmental data, and absence-of-action indicators.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-item fade-in">
+                    <div class="flow-number">2</div>
+                    <div class="flow-content">
+                        <h4>Temporal Normalization</h4>
+                        <p>Apply decay weighting functions w(t) = w₀e^(-λt) with Kalman filter clock-drift compensation 
+                        for distributed timestamp synchronization.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-item fade-in">
+                    <div class="flow-number">3</div>
+                    <div class="flow-content">
+                        <h4>Conflict Resolution</h4>
+                        <p>Probabilistic weighting algorithms resolve inconsistent signals through confidence scoring, 
+                        temporal precedence rules, and unified intent generation.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-item fade-in">
+                    <div class="flow-number">4</div>
+                    <div class="flow-content">
+                        <h4>Execution Eligibility</h4>
+                        <p>Generate time-bounded execution windows with cryptographic attestation, 
+                        verifiable log entries, and scarcity formation signaling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs" id="specs">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Technical Specifications</h2>
+                <p>Performance metrics and protocol parameters</p>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-item fade-in">
+                    <div class="spec-value">150ms</div>
+                    <div class="spec-label">Token Validity</div>
+                </div>
+                <div class="spec-item fade-in">
+                    <div class="spec-value">±1ms</div>
+                    <div class="spec-label">Clock Sync UTC</div>
+                </div>
+                <div class="spec-item fade-in">
+                    <div class="spec-value">&lt;500ms</div>
+                    <div class="spec-label">Settlement Time</div>
+                </div>
+                <div class="spec-item fade-in">
+                    <div class="spec-value">ZK</div>
+                    <div class="spec-label">Privacy Protocol</div>
+                </div>
+                <div class="spec-item fade-in">
+                    <div class="spec-value">Vickrey</div>
+                    <div class="spec-label">Auction Type</div>
+                </div>
+                <div class="spec-item fade-in">
+                    <div class="spec-value">ARM</div>
+                    <div class="spec-label">TrustZone Enclave</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-box fade-in">
+                <div class="contact-content">
+                    <h2>Ready to Integrate?</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                        Contact us to discuss licensing opportunities and technical implementation.
+                    </p>
+                    <a href="mailto:heat.terr@icloud.com" class="email-link">
+                        <span>✉</span> heat.terr@icloud.com
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2rem;">
+                        OnTime Marketing Inc. • IP Assets: DTIF, TISE, OnTime-TIDE
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p>&copy; 2024 OnTime Marketing Inc. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Patent Pending Technologies</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 22, 40, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 22, 40, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
