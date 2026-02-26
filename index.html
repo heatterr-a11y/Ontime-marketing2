@@ -1391,105 +1391,106 @@
         </div>
     </section>
 
-    <!-- BENCHMARKS SECTION - WITH ALL DATA VISIBLE -->
-    <section class="benchmarks" id="benchmarks">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Performance Data</div>
-                <h2 class="section-title">Key<br>Benchmarks</h2>
+<!-- BENCHMARKS SECTION - FIXED -->
+<section class="benchmarks" id="benchmarks">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Performance Data</div>
+            <h2 class="section-title">Key<br>Benchmarks</h2>
+        </div>
+
+        <div class="benchmark-grid">
+            <!-- Benchmark 1: Latency -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">⚡</div>
+                <div class="benchmark-value">2.3<span style="font-size: 1.2rem;">ms</span></div>
+                <div class="benchmark-label">Average Latency</div>
+                <div class="benchmark-desc">End-to-end signal processing from acquisition to eligibility output</div>
+                <div class="benchmark-comparison">
+                    <span class="better">↓ 85%</span> faster than traditional
+                </div>
             </div>
 
-            <div class="benchmark-grid">
-                <!-- Benchmark 1 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">⚡</div>
-                    <div class="benchmark-value">2.3<span style="font-size: 1.2rem;">ms</span></div>
-                    <div class="benchmark-label">Average Latency</div>
-                    <div class="benchmark-desc">End-to-end signal processing from acquisition to eligibility output</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">↓ 85%</span> faster than traditional
-                    </div>
+            <!-- Benchmark 2: Clock Drift -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">🎯</div>
+                <div class="benchmark-value">±0.8<span style="font-size: 1.2rem;">ms</span></div>
+                <div class="benchmark-label">Clock Drift</div>
+                <div class="benchmark-desc">Maximum deviation across federated node network with Kalman filtering</div>
+                <div class="benchmark-comparison">
+                    <span class="better">↓ 92%</span> vs NTP baseline
                 </div>
+            </div>
 
-                <!-- Benchmark 2 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">🎯</div>
-                    <div class="benchmark-value">±0.8<span style="font-size: 1.2rem;">ms</span></div>
-                    <div class="benchmark-label">Clock Drift</div>
-                    <div class="benchmark-desc">Maximum deviation across federated node network with Kalman filtering</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">↓ 92%</span> vs NTP baseline
-                    </div>
+            <!-- Benchmark 3: TPS -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">🚀</div>
+                <div class="benchmark-value">47.5<span style="font-size: 1.2rem;">k</span></div>
+                <div class="benchmark-label">TPS Per Node</div>
+                <div class="benchmark-desc">Transactions per second per synchronization peer at peak load</div>
+                <div class="benchmark-comparison">
+                    <span class="better">↑ 340%</span> vs blockchain
                 </div>
+            </div>
 
-                <!-- Benchmark 3 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">🚀</div>
-                    <div class="benchmark-value">47.5<span style="font-size: 1.2rem;">k</span></div>
-                    <div class="benchmark-label">TPS Per Node</div>
-                    <div class="benchmark-desc">Transactions per second per synchronization peer at peak load</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">↑ 340%</span> vs blockchain
-                    </div>
+            <!-- Benchmark 4: Accuracy -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">🧠</div>
+                <div class="benchmark-value">99.97<span style="font-size: 1.2rem;">%</span></div>
+                <div class="benchmark-label">Intent Accuracy</div>
+                <div class="benchmark-desc">Correct prediction using absence-weighted signals</div>
+                <div class="benchmark-comparison">
+                    <span class="better">↑ 23%</span> vs explicit-only
                 </div>
+            </div>
 
-                <!-- Benchmark 4 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">🧠</div>
-                    <div class="benchmark-value">99.97<span style="font-size: 1.2rem;">%</span></div>
-                    <div class="benchmark-label">Intent Accuracy</div>
-                    <div class="benchmark-desc">Correct prediction using absence-weighted signals</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">↑ 23%</span> vs explicit-only
-                    </div>
+            <!-- Benchmark 5: Settlement -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">⏱️</div>
+                <div class="benchmark-value">423<span style="font-size: 1.2rem;">ms</span></div>
+                <div class="benchmark-label">Settlement Time</div>
+                <div class="benchmark-desc">From auction initiation to value transfer completion</div>
+                <div class="benchmark-comparison">
+                    <span class="better">↓ 76%</span> faster than traditional
                 </div>
+            </div>
 
-                <!-- Benchmark 5 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">⏱️</div>
-                    <div class="benchmark-value">423<span style="font-size: 1.2rem;">ms</span></div>
-                    <div class="benchmark-label">Settlement Time</div>
-                    <div class="benchmark-desc">From auction initiation to value transfer completion</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">↓ 76%</span> faster than traditional
-                    </div>
+            <!-- Benchmark 6: Privacy (FIXED) -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">🔒</div>
+                <div class="benchmark-value">Zero</div>
+                <div class="benchmark-label">Data Exposure</div>
+                <div class="benchmark-desc">Raw signal disclosure via zero-knowledge proofs</div>
+                <div class="benchmark-comparison">
+                    <span class="better">100%</span> privacy guaranteed
                 </div>
+            </div>
 
-                <!-- Benchmark 6 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">🔒</div>
-                    <div class="benchmark-value">Zero</div>
-                    <div class="benchmark-label">Data Exposure</div>
-                    <div class="benchmark-desc">Raw signal disclosure via zero-knowledge proofs</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">100%</span> privacy guaranteed
-                    </div>
+            <!-- Benchmark 7: Scarcity (FIXED) -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">💎</div>
+                <div class="benchmark-value">68.4<span style="font-size: 1.2rem;">idx</span></div>
+                <div class="benchmark-label">Scarcity Index</div>
+                <div class="benchmark-desc">Token scarcity at Day 7 halving interval</div>
+                <div class="benchmark-comparison">
+                    <span class="better">↑</span> Velocity-driven curve
                 </div>
+            </div>
 
-                <!-- Benchmark 7 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">💎</div>
-                    <div class="benchmark-value">68.4<span style="font-size: 1.2rem;">idx</span></div>
-                    <div class="benchmark-label">Scarcity Index</div>
-                    <div class="benchmark-desc">Token scarcity at Day 7 halving interval</div>
-                    <div class="benchmark-comparison">
-                        Velocity-driven curve
-                    </div>
-                </div>
-
-                <!-- Benchmark 8 -->
-                <div class="benchmark-card">
-                    <div class="benchmark-icon">🌐</div>
-                    <div class="benchmark-value">99.99<span style="font-size: 1.2rem;">%</span></div>
-                    <div class="benchmark-label">Network Uptime</div>
-                    <div class="benchmark-desc">Federated node availability across global network</div>
-                    <div class="benchmark-comparison">
-                        <span class="better">SLA</span> guaranteed
-                    </div>
+            <!-- Benchmark 8: Uptime (FIXED) -->
+            <div class="benchmark-card">
+                <div class="benchmark-icon">🌐</div>
+                <div class="benchmark-value">99.99<span style="font-size: 1.2rem;">%</span></div>
+                <div class="benchmark-label">Network Uptime</div>
+                <div class="benchmark-desc">Federated node availability across global network</div>
+                <div class="benchmark-comparison">
+                    <span class="better">SLA</span> guaranteed
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- TECHNOLOGY STACK -->
     <section class="tech-stack" id="technology">
