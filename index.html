@@ -421,7 +421,7 @@
             line-height: 1.2;
         }
 
-        /* BENCHMARKS SECTION - FIXED AND WORKING */
+        /* BENCHMARKS SECTION */
         .benchmarks {
             min-height: 100vh;
             padding: 10rem 5%;
@@ -1391,7 +1391,7 @@
         </div>
     </section>
 
-<!-- BENCHMARKS SECTION -->
+<!-- BENCHMARKS SECTION - WITH INLINE STYLES FOR IMMEDIATE VISIBILITY -->
 <section class="benchmarks" id="benchmarks">
     <div class="container">
         <div class="section-header">
@@ -1399,8 +1399,8 @@
             <h2 class="section-title">Key<br>Benchmarks</h2>
         </div>
 
-        <div class="benchmark-grid">
-            <div class="benchmark-card">
+        <div class="benchmark-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem;">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">⚡</div>
                 <div class="benchmark-value">2.3<span>ms</span></div>
                 <div class="benchmark-label">Average Latency</div>
@@ -1410,7 +1410,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">🎯</div>
                 <div class="benchmark-value">±0.8<span>ms</span></div>
                 <div class="benchmark-label">Clock Drift</div>
@@ -1420,7 +1420,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">🚀</div>
                 <div class="benchmark-value">47.5<span>k</span></div>
                 <div class="benchmark-label">TPS Per Node</div>
@@ -1430,7 +1430,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">🧠</div>
                 <div class="benchmark-value">99.97<span>%</span></div>
                 <div class="benchmark-label">Intent Accuracy</div>
@@ -1440,7 +1440,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">⏱️</div>
                 <div class="benchmark-value">423<span>ms</span></div>
                 <div class="benchmark-label">Settlement Time</div>
@@ -1450,7 +1450,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">🔒</div>
                 <div class="benchmark-value">Zero</div>
                 <div class="benchmark-label">Data Exposure</div>
@@ -1460,7 +1460,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">💎</div>
                 <div class="benchmark-value">68.4<span>idx</span></div>
                 <div class="benchmark-label">Scarcity Index</div>
@@ -1470,7 +1470,7 @@
                 </div>
             </div>
 
-            <div class="benchmark-card">
+            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
                 <div class="benchmark-icon">🌐</div>
                 <div class="benchmark-value">99.99<span>%</span></div>
                 <div class="benchmark-label">Network Uptime</div>
@@ -1482,7 +1482,6 @@
         </div>
     </div>
 </section>
-
 
     <!-- TECHNOLOGY STACK -->
     <section class="tech-stack" id="technology">
