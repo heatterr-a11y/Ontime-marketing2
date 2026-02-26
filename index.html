@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnTime Marketing Inc. | Temporal Intent Technology</title>
+    <title>OnTime Marketing Inc. | Technical Specifications</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@400;700&family=JetBrains+Mono:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
-            --primary: #050a14;
+            --primary: #020408;
             --secondary: #0a1628;
             --accent-cyan: #00f0ff;
             --accent-blue: #0066ff;
             --accent-purple: #7000ff;
             --accent-green: #00ff9d;
+            --accent-pink: #ff00aa;
             --accent-orange: #ff6b00;
-            --dtif-color: #0066ff;
-            --tise-color: #00ff9d;
-            --tide-color: #ff00aa;
+            --accent-yellow: #ffe600;
+            --dtif-blue: #0066ff;
+            --tise-green: #00ff9d;
+            --tide-pink: #ff00aa;
             --text: #ffffff;
             --text-dim: rgba(255, 255, 255, 0.6);
+            --text-dark: rgba(255, 255, 255, 0.3);
+            --grid-color: rgba(0, 240, 255, 0.05);
         }
 
         * {
@@ -40,6 +44,7 @@
             color: var(--text);
             overflow-x: hidden;
             cursor: none;
+            line-height: 1.6;
         }
 
         /* Custom Cursor */
@@ -51,7 +56,7 @@
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s;
+            transition: transform 0.1s, border-color 0.3s;
             mix-blend-mode: difference;
         }
 
@@ -68,10 +73,10 @@
 
         .cursor.hover {
             transform: scale(2);
-            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--accent-green);
         }
 
-        /* Loading Screen */
+        /* Loader */
         .loader {
             position: fixed;
             top: 0;
@@ -152,7 +157,6 @@
             font-weight: 700;
             letter-spacing: 0.2rem;
             position: relative;
-            overflow: hidden;
         }
 
         .logo::before {
@@ -242,12 +246,6 @@
             border-radius: 50px;
             background: rgba(0, 240, 255, 0.05);
             backdrop-filter: blur(10px);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .status-dot {
@@ -288,7 +286,6 @@
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
         }
 
         .hero-subtitle {
@@ -383,15 +380,9 @@
             100% { transform: scaleY(0); transform-origin: bottom; }
         }
 
-        /* Tech Stack Section */
-        .tech-stack {
-            min-height: 100vh;
-            padding: 10rem 5%;
-            position: relative;
-        }
-
+        /* Section Headers */
         .section-header {
-            margin-bottom: 6rem;
+            margin-bottom: 4rem;
             position: relative;
         }
 
@@ -421,6 +412,18 @@
             line-height: 1.2;
         }
 
+        /* Tech Stack Section */
+        .tech-stack {
+            min-height: 100vh;
+            padding: 10rem 5%;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
         .cards-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -437,7 +440,7 @@
             overflow: hidden;
             transform-style: preserve-3d;
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            min-height: 500px;
+            min-height: 600px;
             display: flex;
             flex-direction: column;
         }
@@ -502,21 +505,21 @@
         .dtif .card-icon {
             background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 102, 255, 0.05));
             border: 1px solid rgba(0, 102, 255, 0.5);
-            color: var(--dtif-color);
+            color: var(--dtif-blue);
             box-shadow: 0 0 30px rgba(0, 102, 255, 0.3);
         }
 
         .tise .card-icon {
             background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(0, 255, 157, 0.05));
             border: 1px solid rgba(0, 255, 157, 0.5);
-            color: var(--tise-color);
+            color: var(--tise-green);
             box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
         }
 
         .tide .card-icon {
             background: linear-gradient(135deg, rgba(255, 0, 170, 0.2), rgba(255, 0, 170, 0.05));
             border: 1px solid rgba(255, 0, 170, 0.5);
-            color: var(--tide-color);
+            color: var(--tide-pink);
             box-shadow: 0 0 30px rgba(255, 0, 170, 0.3);
         }
 
@@ -585,9 +588,241 @@
             font-size: 1.2rem;
         }
 
-        .dtif .feature-list li:hover::before { color: var(--dtif-color); }
-        .tise .feature-list li:hover::before { color: var(--tise-color); }
-        .tide .feature-list li:hover::before { color: var(--tide-color); }
+        .dtif .feature-list li:hover::before { color: var(--dtif-blue); }
+        .tise .feature-list li:hover::before { color: var(--tise-green); }
+        .tide .feature-list li:hover::before { color: var(--tide-pink); }
+
+        /* Technical Specifications Section */
+        .tech-specs {
+            min-height: 100vh;
+            padding: 10rem 5%;
+            background: linear-gradient(180deg, var(--primary) 0%, rgba(0, 102, 255, 0.05) 50%, var(--primary) 100%);
+            position: relative;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .spec-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+        }
+
+        .spec-category.dtif-spec::before { background: linear-gradient(90deg, var(--dtif-blue), transparent); }
+        .spec-category.tise-spec::before { background: linear-gradient(90deg, var(--tise-green), transparent); }
+        .spec-category.tide-spec::before { background: linear-gradient(90deg, var(--tide-pink), transparent); }
+        .spec-category.system-spec::before { background: linear-gradient(90deg, var(--accent-orange), transparent); }
+
+        .spec-category-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-category-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .spec-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            margin: 0 -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .spec-label::before {
+            content: '›';
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+
+        .dtif-spec .spec-label::before { color: var(--dtif-blue); }
+        .tise-spec .spec-label::before { color: var(--tise-green); }
+        .tide-spec .spec-label::before { color: var(--tide-pink); }
+        .system-spec .spec-label::before { color: var(--accent-orange); }
+
+        .spec-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .spec-value.highlight {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .dtif-spec .spec-value.highlight { color: var(--dtif-blue); text-shadow: 0 0 10px rgba(0, 102, 255, 0.3); }
+        .tise-spec .spec-value.highlight { color: var(--tise-green); text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+        .tide-spec .spec-value.highlight { color: var(--tide-pink); text-shadow: 0 0 10px rgba(255, 0, 170, 0.3); }
+
+        /* Architecture Diagram Section */
+        .architecture {
+            min-height: 100vh;
+            padding: 10rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 4rem;
+        }
+
+        .arch-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .arch-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .arch-box:hover {
+            border-color: var(--accent-cyan);
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .arch-box-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .arch-box-content {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .arch-connector {
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            width: 2rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+        }
+
+        .arch-main {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .arch-main-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-cyan);
+        }
+
+        .arch-modules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .arch-module {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .arch-module:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .arch-module-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .arch-module-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .arch-module-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
 
         /* Process Flow Section */
         .process {
@@ -737,38 +972,37 @@
             border-left: 3px solid var(--accent-cyan);
         }
 
-        /* Specs Grid */
-        .specs {
+        /* Performance Metrics */
+        .performance {
             padding: 10rem 5%;
             background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
         }
 
-        .specs-grid {
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            max-width: 1000px;
-            margin: 4rem auto 0;
+            margin-top: 4rem;
         }
 
-        .spec-card {
+        .metric-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 2.5rem;
+            padding: 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
             transition: all 0.3s;
         }
 
-        .spec-card:hover {
+        .metric-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-cyan);
             box-shadow: 0 20px 40px rgba(0, 240, 255, 0.1);
         }
 
-        .spec-value {
+        .metric-value {
             font-family: 'Syncopate', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
@@ -778,12 +1012,18 @@
             margin-bottom: 0.5rem;
         }
 
-        .spec-label {
+        .metric-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.1rem;
+        }
+
+        .metric-desc {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-dark);
         }
 
         /* Contact Section */
@@ -818,13 +1058,6 @@
             z-index: 10;
             text-align: center;
             max-width: 800px;
-        }
-
-        .contact-title {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 2rem;
         }
 
         .contact-orb {
@@ -869,6 +1102,13 @@
         @keyframes pulse-core {
             0%, 100% { box-shadow: 0 0 60px var(--accent-cyan); }
             50% { box-shadow: 0 0 100px var(--accent-cyan), 0 0 140px var(--accent-blue); }
+        }
+
+        .contact-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
         }
 
         .email-wrapper {
@@ -996,7 +1236,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .cards-container {
                 grid-template-columns: 1fr;
             }
@@ -1005,30 +1245,16 @@
                 min-height: auto;
             }
             
-            .process-step,
-            .process-step:nth-child(even) {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .step-content {
-                width: 100%;
-                margin-bottom: 2rem;
-            }
-            
-            .process-line {
-                display: none;
-            }
-            
-            .step-number {
-                position: relative;
-                left: auto;
-                transform: none;
-                margin-bottom: 2rem;
-            }
-            
             .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .arch-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1067,7 +1293,29 @@
                 transform: rotate(-45deg) translate(6px, -6px);
             }
             
-            .specs-grid {
+            .process-step,
+            .process-step:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-content {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .process-line {
+                display: none;
+            }
+            
+            .step-number {
+                position: relative;
+                left: auto;
+                transform: none;
+                margin-bottom: 2rem;
+            }
+            
+            .metrics-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1084,47 +1332,33 @@
             }
         }
 
-        /* Glitch Effect */
-        .glitch {
-            position: relative;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch::before {
-            animation: glitch-1 2s infinite;
+        /* Formula styling */
+        .formula-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
             color: var(--accent-cyan);
-            z-index: -1;
         }
 
-        .glitch::after {
-            animation: glitch-2 2s infinite;
-            color: var(--accent-purple);
-            z-index: -2;
+        .param-list {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
         }
 
-        @keyframes glitch-1 {
-            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
-            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
-            60% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
-            80% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 2px); }
+        .param-list li {
+            margin: 0.3rem 0;
+            list-style: none;
         }
 
-        @keyframes glitch-2 {
-            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
-            40% { clip-path: inset(30% 0 40% 0); transform: translate(-2px, 2px); }
-            60% { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
-            80% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, -2px); }
+        .param-list li::before {
+            content: '•';
+            color: var(--accent-cyan);
+            margin-right: 0.5rem;
         }
     </style>
 </head>
@@ -1146,8 +1380,9 @@
         <div class="logo">ONTIME</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#technology">Technology</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#specs">Specs</a></li>
+            <li><a href="#specs">Specifications</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#performance">Performance</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="mobile-toggle" id="mobileToggle">
@@ -1166,21 +1401,21 @@
                 <span>SYSTEM ONLINE // PATENT PENDING</span>
             </div>
             <h1>
-                <div class="line"><span>TEMPORAL</span></div>
-                <div class="line"><span class="highlight glitch" data-text="INTENT">INTENT</span></div>
-                <div class="line"><span>TECHNOLOGY</span></div>
+                <div class="line"><span>TECHNICAL</span></div>
+                <div class="line"><span class="highlight">SPECIFICATIONS</span></div>
+                <div class="line"><span>DATABASE</span></div>
             </h1>
             <p class="hero-subtitle">
-                Decentralized frameworks for real-time intent synchronization. 
-                Processing signals across time to execute decisions before they're made.
+                Comprehensive system architecture, protocol parameters, and performance metrics 
+                for the DTIF, TISE, and OnTime-TIDE temporal intent processing framework.
             </p>
             <div class="hero-cta">
-                <a href="#technology" class="btn btn-primary">
-                    <span>Explore Systems</span>
+                <a href="#specs" class="btn btn-primary">
+                    <span>View Specs</span>
                     <span>→</span>
                 </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <span>Initiate Contact</span>
+                <a href="#architecture" class="btn btn-secondary">
+                    <span>System Architecture</span>
                 </a>
             </div>
         </div>
@@ -1190,12 +1425,12 @@
         </div>
     </section>
 
-    <!-- Technology Stack -->
+    <!-- Technology Overview -->
     <section class="tech-stack" id="technology">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Core Architecture</div>
-                <h2 class="section-title">Three-Layer<br>Processing Stack</h2>
+                <div class="section-label">System Overview</div>
+                <h2 class="section-title">Three-Layer<br>Architecture</h2>
             </div>
             
             <div class="cards-container">
@@ -1210,11 +1445,11 @@
                         indicators through temporal weighting algorithms.
                     </p>
                     <ul class="feature-list">
-                        <li>Intent Signal Acquisition</li>
-                        <li>Exponential Decay Weighting</li>
-                        <li>Probabilistic Conflict Resolution</li>
-                        <li>Zero-Knowledge Privacy Layer</li>
-                        <li>Absence-as-Positive-Signal</li>
+                        <li>Intent Signal Acquisition (Module 110)</li>
+                        <li>Temporal Normalization Engine (120)</li>
+                        <li>Conflict Resolution Module (130)</li>
+                        <li>Execution Eligibility Generator (140)</li>
+                        <li>Privacy Preservation Layer (150)</li>
                     </ul>
                 </div>
 
@@ -1229,11 +1464,11 @@
                         real-time coordination across distributed systems.
                     </p>
                     <ul class="feature-list">
-                        <li>150ms Execution Windows</li>
-                        <li>Kalman Filter Synchronization</li>
-                        <li>τ-Offset Correction</li>
-                        <li>Vickrey Auction Mempool</li>
-                        <li>Proof-of-Render Consensus</li>
+                        <li>TISE Ingest Module (210)</li>
+                        <li>Clock-Drift Compensator (220)</li>
+                        <li>Zero-Knowledge Mint (230)</li>
+                        <li>Auction Mempool (240)</li>
+                        <li>Settlement Oracle (250)</li>
                     </ul>
                 </div>
 
@@ -1249,11 +1484,321 @@
                     </p>
                     <ul class="feature-list">
                         <li>Micro-Decision Auctions</li>
-                        <li>Automated Value Execution</li>
-                        <li>Scarcity Index Calculation</li>
-                        <li>Smart Contract Integration</li>
-                        <li>Sub-500ms Settlement</li>
+                        <li>Value Execution Engine</li>
+                        <li>Automated Action Orchestration</li>
+                        <li>Scarcity Formation Signals</li>
+                        <li>Smart Contract Bridge</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="tech-specs" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Technical Data</div>
+                <h2 class="section-title">System<br>Specifications</h2>
+            </div>
+
+            <div class="specs-grid">
+                <!-- DTIF Specs -->
+                <div class="spec-category dtif-spec">
+                    <h3 class="spec-category-title" style="color: var(--dtif-blue);">DTIF Protocol</h3>
+                    <div class="spec-category-subtitle">Decentralized Temporal Intent Framework</div>
+                    <ul class="spec-list">
+                        <li class="spec-item">
+                            <span class="spec-label">Signal Input Types</span>
+                            <span class="spec-value highlight">5 Categories</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Temporal Decay Function</span>
+                            <span class="spec-value">w(t) = w₀e^(-λt)</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Decay Rate (λ) Range</span>
+                            <span class="spec-value highlight">0.3 - 0.8</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Conflict Resolution</span>
+                            <span class="spec-value">Probabilistic Weighting</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Privacy Protocol</span>
+                            <span class="spec-value highlight">Zero-Knowledge</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Ledger Type</span>
+                            <span class="spec-value">Decentralized</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Absence Processing</span>
+                            <span class="spec-value highlight">Confidence ↑</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div>Temporal Weighting:</div>
+                        <div style="margin-top: 0.5rem; font-size: 1.1rem;">w(t) = w₀ × e^(-λt)</div>
+                        <ul class="param-list">
+                            <li>w₀ = Initial weight</li>
+                            <li>λ = Decay constant (0.3-0.8)</li>
+                            <li>t = Time elapsed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- TISE Specs -->
+                <div class="spec-category tise-spec">
+                    <h3 class="spec-category-title" style="color: var(--tise-green);">TISE Engine</h3>
+                    <div class="spec-category-subtitle">Temporal Intent Synchronization Engine</div>
+                    <ul class="spec-list">
+                        <li class="spec-item">
+                            <span class="spec-label">Token Validity Window</span>
+                            <span class="spec-value highlight">150 ms</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Clock Synchronization</span>
+                            <span class="spec-value">±1 ms UTC</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Drift Correction</span>
+                            <span class="spec-value highlight">Kalman Filter</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">τ-Offset Tolerance (ε)</span>
+                            <span class="spec-value">Protocol-defined</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Auction Type</span>
+                            <span class="spec-value highlight">Vickrey (Sealed-bid)</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Bid Window</span>
+                            <span class="spec-value">150 ms</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Auto-burn Mechanism</span>
+                            <span class="spec-value highlight">Enabled</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box" style="border-color: rgba(0, 255, 157, 0.3); color: var(--tise-green);">
+                        <div>Clock Correction:</div>
+                        <div style="margin-top: 0.5rem; font-size: 1.1rem;">τ' = τ ± ε (skew corrected)</div>
+                        <ul class="param-list">
+                            <li>τ = Raw timestamp</li>
+                            <li>ε = Tolerance threshold</li>
+                            <li>τ' = Corrected time</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- OnTime-TIDE Specs -->
+                <div class="spec-category tide-spec">
+                    <h3 class="spec-category-title" style="color: var(--tide-pink);">OnTime-TIDE</h3>
+                    <div class="spec-category-subtitle">Temporal Intent Decision Engine</div>
+                    <ul class="spec-list">
+                        <li class="spec-item">
+                            <span class="spec-label">Settlement Time</span>
+                            <span class="spec-value highlight">&lt; 500 ms</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Auction Mechanism</span>
+                            <span class="spec-value">Micro-Decision</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Value Execution</span>
+                            <span class="spec-value highlight">Automated</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Scarcity Formation</span>
+                            <span class="spec-value">Burn Velocity Based</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Halving Intervals</span>
+                            <span class="spec-value highlight">3.5 / 7 Days</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Action Types</span>
+                            <span class="spec-value">Multi-modal</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Marketplace Type</span>
+                            <span class="spec-value highlight">On-Device</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box" style="border-color: rgba(255, 0, 170, 0.3); color: var(--tide-pink);">
+                        <div>Scarcity Index:</div>
+                        <div style="margin-top: 0.5rem; font-size: 1.1rem;">SI = f(Burn Velocity, Time)</div>
+                        <ul class="param-list">
+                            <li>SI = Scarcity Index (0-100)</li>
+                            <li>Halving at Day 3.5, 7</li>
+                            <li>Inverse to Token Availability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- System Specs -->
+                <div class="spec-category system-spec">
+                    <h3 class="spec-category-title" style="color: var(--accent-orange);">System Wide</h3>
+                    <div class="spec-category-subtitle">Cross-Layer Parameters</div>
+                    <ul class="spec-list">
+                        <li class="spec-item">
+                            <span class="spec-label">Security Enclave</span>
+                            <span class="spec-value highlight">ARM TrustZone</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Cryptographic Attestation</span>
+                            <span class="spec-value">Enabled</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Verifiable Log Entries</span>
+                            <span class="spec-value highlight">Immutable</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Downstream API</span>
+                            <span class="spec-value">Standardized</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Processing Nodes</span>
+                            <span class="spec-value highlight">Federated</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Privacy Preservation</span>
+                            <span class="spec-value">Raw Signal Non-disclosure</span>
+                        </li>
+                        <li class="spec-item">
+                            <span class="spec-label">Eligibility Output</span>
+                            <span class="spec-value highlight">Time-Bounded</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box" style="border-color: rgba(255, 107, 0, 0.3); color: var(--accent-orange);">
+                        <div>Execution Window:</div>
+                        <div style="margin-top: 0.5rem; font-size: 1.1rem;">Δt = t_end - t_start</div>
+                        <ul class="param-list">
+                            <li>t_start = Threshold triggered</li>
+                            <li>Δt = Protocol-defined duration</li>
+                            <li>Cryptographic signature required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Diagram -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label" style="justify-content: center;">System Design</div>
+                <h2 class="section-title">Architecture<br>Diagram</h2>
+            </div>
+
+            <div class="arch-grid">
+                <!-- Inputs -->
+                <div class="arch-column">
+                    <div class="arch-box">
+                        <div class="arch-box-title">Input Layer 110</div>
+                        <div class="arch-box-content">
+                            <strong>Intent Signal Inputs</strong><br>
+                            • Explicit User Actions<br>
+                            • Implicit Behavioral Signals<br>
+                            • Contextual Environmental Data<br>
+                            • Biometric Proxies<br>
+                            • Absence-of-Action Indicators
+                        </div>
+                    </div>
+                    <div class="arch-box">
+                        <div class="arch-box-title">Bridge Interface</div>
+                        <div class="arch-box-content">
+                            <strong>Protocol → Implementation</strong><br>
+                            • Absence = Positive Signal<br>
+                            • τ-Oracle Broadcast<br>
+                            • GNSS Timestamp<br>
+                            • Scroll-Pause Detection (>1.8s)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Processing -->
+                <div class="arch-main">
+                    <div class="arch-main-title">DTIF / TISE PROCESSING CORE</div>
+                    <div class="arch-modules">
+                        <div class="arch-module">
+                            <div class="arch-module-num">120</div>
+                            <div class="arch-module-name">Temporal Normalization</div>
+                            <div class="arch-module-desc">Decay-Weighted Aggregation</div>
+                        </div>
+                        <div class="arch-module">
+                            <div class="arch-module-num">130</div>
+                            <div class="arch-module-name">Conflict Resolution</div>
+                            <div class="arch-module-desc">Probabilistic Logic</div>
+                        </div>
+                        <div class="arch-module">
+                            <div class="arch-module-num">210</div>
+                            <div class="arch-module-name">TISE Ingest</div>
+                            <div class="arch-module-desc">Receives τ-offset signal</div>
+                        </div>
+                        <div class="arch-module">
+                            <div class="arch-module-num">220</div>
+                            <div class="arch-module-name">Clock-Drift Compensator</div>
+                            <div class="arch-module-desc">Kalman Filter Correction</div>
+                        </div>
+                        <div class="arch-module">
+                            <div class="arch-module-num">230</div>
+                            <div class="arch-module-name">Zero-Knowledge Mint</div>
+                            <div class="arch-module-desc">Produces TISE-token</div>
+                        </div>
+                        <div class="arch-module">
+                            <div class="arch-module-num">240</div>
+                            <div class="arch-module-name">Auction Mempool</div>
+                            <div class="arch-module-desc">150ms bid window</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0, 240, 255, 0.2); text-align: center;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">
+                            SECURE ENCLAVE (ARM TrustZone)
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--text-dim);">
+                            User Devices | Secure Enclaves | Federated Nodes
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outputs -->
+                <div class="arch-column">
+                    <div class="arch-box">
+                        <div class="arch-box-title">Output Layer</div>
+                        <div class="arch-box-content">
+                            <strong>Execution Eligibility</strong><br>
+                            • Time-Bounded Window<br>
+                            • Cryptographic Attestation<br>
+                            • Verifiable Log Entry<br>
+                            • Scarcity Formation Signal<br>
+                            • TISE-Token (150ms validity)
+                        </div>
+                    </div>
+                    <div class="arch-box">
+                        <div class="arch-box-title">Downstream Systems</div>
+                        <div class="arch-box-content">
+                            <strong>Consumption Layer</strong><br>
+                            • Sync Engines<br>
+                            • Marketplaces<br>
+                            • Automation Systems<br>
+                            • Decision Engines<br>
+                            • Smart Contracts
+                        </div>
+                    </div>
+                    <div class="arch-box">
+                        <div class="arch-box-title">Settlement 250</div>
+                        <div class="arch-box-content">
+                            <strong>Oracle Settlement</strong><br>
+                            • Fee Transfer<br>
+                            • Privacy Preservation<br>
+                            • Proof-of-Render<br>
+                            • Vickrey Auction Resolution
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1280,6 +1825,9 @@
                         Multi-modal input layer capturing explicit user actions, implicit behavioral patterns, 
                         contextual environmental data, biometric proxies, and critical absence-of-action indicators.
                     </p>
+                    <div class="formula-box">
+                        Input Vector: [Explicit, Implicit, Contextual, Biometric, Absence]
+                    </div>
                 </div>
                 <div class="step-number">1</div>
             </div>
@@ -1291,8 +1839,9 @@
                     <p class="step-description">
                         Apply decay weighting functions to temporally-disparate signals. 
                         Higher λ values prioritize recent signals while maintaining historical context.
+                        Kalman filter compensates for clock drift across distributed nodes.
                     </p>
-                    <div class="step-formula">w(t) = w₀ × e^(-λt)</div>
+                    <div class="step-formula">w(t) = w₀ × e^(-λt)<br>τ' = τ ± ε (skew corrected)</div>
                 </div>
                 <div class="step-number">2</div>
             </div>
@@ -1300,11 +1849,15 @@
             <div class="process-step">
                 <div class="step-content">
                     <div class="step-label">Step 03</div>
-                    <h3 class="step-title">Conflict Resolution</h3>
+                    <h3 class="step-title">Absence Processing</h3>
                     <p class="step-description">
-                        Probabilistic weighting algorithms resolve inconsistent signals through confidence scoring, 
-                        temporal precedence rules, and unified intent state generation.
+                        Key differentiator: Absence-of-action increases confidence scores. 
+                        System treats non-interaction as positive signal for intent prediction,
+                        enabling predictive action before explicit user input.
                     </p>
+                    <div class="formula-box" style="border-color: rgba(255, 230, 0, 0.3); color: var(--accent-yellow);">
+                        Confidence<sub>absence</sub> = Confidence<sub>baseline</sub> + ∫(Absence_duration)
+                    </div>
                 </div>
                 <div class="step-number">3</div>
             </div>
@@ -1312,49 +1865,105 @@
             <div class="process-step">
                 <div class="step-content">
                     <div class="step-label">Step 04</div>
+                    <h3 class="step-title">Conflict Resolution</h3>
+                    <p class="step-description">
+                        Probabilistic weighting algorithms resolve inconsistent signals through confidence scoring, 
+                        temporal precedence rules, and unified intent state generation.
+                    </p>
+                    <div class="formula-box" style="border-color: rgba(112, 0, 255, 0.3); color: var(--accent-purple);">
+                        Resolution Hierarchy:<br>
+                        1. Calculate Signal Confidence<br>
+                        2. Apply Temporal Weight<br>
+                        3. Resolve Conflicts<br>
+                        4. Generate Unified Intent
+                    </div>
+                </div>
+                <div class="step-number">4</div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-content">
+                    <div class="step-label">Step 05</div>
+                    <h3 class="step-title">Token Minting & Auction</h3>
+                    <p class="step-description">
+                        Zero-knowledge minting of TISE-tokens with 150ms validity windows. 
+                        Vickrey auction mechanism (sealed-bid, second-price) ensures fair value distribution 
+                        across DSP bidders in the mempool.
+                    </p>
+                    <div class="formula-box" style="border-color: rgba(0, 255, 157, 0.3); color: var(--tise-green);">
+                        Token Lifecycle:<br>
+                        Mint (t=0) → Auction (150ms) → Settlement (250ms) → Auto-burn
+                    </div>
+                </div>
+                <div class="step-number">5</div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-content">
+                    <div class="step-label">Step 06</div>
                     <h3 class="step-title">Execution Eligibility</h3>
                     <p class="step-description">
                         Generate time-bounded execution windows with cryptographic attestation. 
-                        Output includes verifiable log entries and scarcity formation signaling for downstream systems.
+                        Output includes verifiable log entries and scarcity formation signaling 
+                        for downstream systems without raw signal disclosure.
                     </p>
+                    <div class="formula-box" style="border-color: rgba(255, 0, 170, 0.3); color: var(--tide-pink);">
+                        Output: Time-Bounded Window + Cryptographic Attestation + Privacy-Preserved State
+                    </div>
                 </div>
-                <div class="step-number">4</div>
+                <div class="step-number">6</div>
             </div>
         </div>
     </section>
 
-    <!-- Specifications -->
-    <section class="specs" id="specs">
+    <!-- Performance Metrics -->
+    <section class="performance" id="performance">
         <div class="container">
             <div class="section-header" style="text-align: center;">
-                <div class="section-label" style="justify-content: center;">Performance Metrics</div>
-                <h2 class="section-title">Technical<br>Specifications</h2>
+                <div class="section-label" style="justify-content: center;">Benchmarks</div>
+                <h2 class="section-title">Performance<br>Metrics</h2>
             </div>
             
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <div class="spec-value">150<span style="font-size: 1rem;">ms</span></div>
-                    <div class="spec-label">Token Validity Window</div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">150<span style="font-size: 1rem;">ms</span></div>
+                    <div class="metric-label">Token Validity</div>
+                    <div class="metric-desc">Maximum window for TISE-token execution eligibility</div>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-value">±1<span style="font-size: 1rem;">ms</span></div>
-                    <div class="spec-label">Clock Sync UTC</div>
+                <div class="metric-card">
+                    <div class="metric-value">±1<span style="font-size: 1rem;">ms</span></div>
+                    <div class="metric-label">Clock Sync</div>
+                    <div class="metric-desc">UTC synchronization tolerance across distributed nodes</div>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-value">&lt;500<span style="font-size: 1rem;">ms</span></div>
-                    <div class="spec-label">Settlement Time</div>
+                <div class="metric-card">
+                    <div class="metric-value">&lt;500<span style="font-size: 1rem;">ms</span></div>
+                    <div class="metric-label">Settlement</div>
+                    <div class="metric-desc">End-to-end transaction completion time</div>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-value">ZK</div>
-                    <div class="spec-label">Privacy Protocol</div>
+                <div class="metric-card">
+                    <div class="metric-value">99.9<span style="font-size: 1rem;">%</span></div>
+                    <div class="metric-label">Uptime</div>
+                    <div class="metric-desc">Target availability for federated node network</div>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-value">Vickrey</div>
-                    <div class="spec-label">Auction Mechanism</div>
+                <div class="metric-card">
+                    <div class="metric-value">256<span style="font-size: 1rem;">bit</span></div>
+                    <div class="metric-label">Encryption</div>
+                    <div class="metric-desc">Zero-knowledge proof cryptographic standard</div>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-value">ARM</div>
-                    <div class="spec-label">TrustZone Enclave</div>
+                <div class="metric-card">
+                    <div class="metric-value">10<span style="font-size: 1rem;">k+</span></div>
+                    <div class="metric-label">TPS</div>
+                    <div class="metric-desc">Transactions per second per synchronization peer</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0.3<span style="font-size: 1rem;">-0.8</span></div>
+                    <div class="metric-label">Decay λ</div>
+                    <div class="metric-desc">Configurable temporal weighting decay constants</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3.5<span style="font-size: 1rem;">d</span></div>
+                    <div class="metric-label">Halving</div>
+                    <div class="metric-desc">Scarcity index halving interval for burn velocity</div>
                 </div>
             </div>
         </div>
@@ -1373,7 +1982,7 @@
             
             <p style="color: var(--text-dim); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
                 Ready to integrate temporal intent processing into your infrastructure? 
-                Let's discuss licensing and implementation.
+                Technical documentation and licensing available upon request.
             </p>
             
             <div class="email-wrapper">
@@ -1400,8 +2009,9 @@
         </div>
         <div class="footer-right">
             <a href="#technology">Technology</a>
-            <a href="#process">Process</a>
-            <a href="#specs">Specs</a>
+            <a href="#specs">Specifications</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#performance">Performance</a>
             <a href="#contact">Contact</a>
         </div>
     </footer>
@@ -1435,7 +2045,7 @@
             });
         });
 
-        document.querySelectorAll('a, button, .tech-card').forEach(el => {
+        document.querySelectorAll('a, button, .tech-card, .spec-category, .metric-card, .arch-box, .arch-module').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
@@ -1461,7 +2071,6 @@
                 posArray[i+1] = (Math.random() - 0.5) * 50;
                 posArray[i+2] = (Math.random() - 0.5) * 50;
                 
-                // Cyan/Blue colors
                 colorArray[i] = 0;
                 colorArray[i+1] = 0.8 + Math.random() * 0.2;
                 colorArray[i+2] = 1;
@@ -1481,16 +2090,8 @@
             const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particlesMesh);
 
-            // Create connecting lines
-            const linesMaterial = new THREE.LineBasicMaterial({
-                color: 0x00f0ff,
-                transparent: true,
-                opacity: 0.1
-            });
-
             camera.position.z = 30;
 
-            // Mouse interaction
             let mouseX = 0;
             let mouseY = 0;
 
@@ -1499,23 +2100,17 @@
                 mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
             });
 
-            // Animation
             function animate() {
                 requestAnimationFrame(animate);
-
                 particlesMesh.rotation.y += 0.001;
                 particlesMesh.rotation.x += 0.0005;
-
-                // Subtle mouse follow
                 particlesMesh.rotation.y += mouseX * 0.001;
                 particlesMesh.rotation.x += mouseY * 0.001;
-
                 renderer.render(scene, camera);
             }
 
             animate();
 
-            // Resize handler
             window.addEventListener('resize', () => {
                 camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
@@ -1563,13 +2158,10 @@
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    
                     const rotateX = (y - centerY) / 20;
                     const rotateY = (centerX - x) / 20;
-                    
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
                     card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
                     card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
@@ -1606,6 +2198,47 @@
                 ease: "power3.out"
             });
 
+            // Spec categories
+            gsap.from('.spec-category', {
+                scrollTrigger: {
+                    trigger: '.specs-grid',
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+
+            // Architecture
+            gsap.from('.arch-box', {
+                scrollTrigger: {
+                    trigger: '.arch-grid',
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                },
+                x: -50,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power3.out"
+            });
+
+            gsap.from('.arch-main', {
+                scrollTrigger: {
+                    trigger: '.arch-grid',
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                },
+                scale: 0.9,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.3,
+                ease: "power3.out"
+            });
+
             // Process steps
             gsap.utils.toArray('.process-step').forEach((step, i) => {
                 gsap.to(step, {
@@ -1617,7 +2250,7 @@
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    delay: i * 0.2,
+                    delay: i * 0.1,
                     ease: "power3.out"
                 });
             });
@@ -1634,10 +2267,10 @@
                 ease: "none"
             });
 
-            // Spec cards
-            gsap.from('.spec-card', {
+            // Metrics
+            gsap.from('.metric-card', {
                 scrollTrigger: {
-                    trigger: '.specs-grid',
+                    trigger: '.metrics-grid',
                     start: 'top 80%',
                     toggleActions: 'play none none reverse'
                 },
@@ -1648,7 +2281,7 @@
                 ease: "back.out(1.7)"
             });
 
-            // Contact section
+            // Contact
             gsap.from('.contact-orb', {
                 scrollTrigger: {
                     trigger: '.contact',
@@ -1691,17 +2324,6 @@
                 }
             });
         });
-
-        // Glitch effect randomization
-        setInterval(() => {
-            const glitch = document.querySelector('.glitch');
-            if (Math.random() > 0.95) {
-                glitch.style.animation = 'none';
-                setTimeout(() => {
-                    glitch.style.animation = '';
-                }, 100);
-            }
-        }, 2000);
     </script>
 </body>
 </html>
