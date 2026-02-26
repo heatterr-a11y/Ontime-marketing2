@@ -41,7 +41,6 @@
 
 ## 🌐 System Architecture
 
-Perfect! Here's the updated README with Option 1 (clean block letters that clearly spell "ONTIME"):
 ⚡ 2.3ms	🎯 ±0.8ms	🚀 47.5k TPS	🧠 99.97%
 Avg Latency	Clock Drift	Per Node	Accuracy
 🌐 System Architecture
