@@ -177,6 +177,7 @@
             display: flex;
             gap: 3rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -207,6 +208,23 @@
 
         .nav-links a:hover {
             color: var(--accent-cyan);
+        }
+
+        #themeToggle {
+            background: none;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: none;
+            font-family: 'JetBrains Mono';
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        #themeToggle:hover {
+            background: var(--accent-cyan);
+            color: var(--primary);
         }
 
         /* Hero Section */
@@ -421,6 +439,50 @@
             line-height: 1.2;
         }
 
+        /* LIVE STATS SECTION */
+        .live-stats {
+            padding: 5rem 5%;
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid rgba(0,212,255,0.1);
+            border-bottom: 1px solid rgba(0,212,255,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            position: relative;
+            padding: 2rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.1);
+        }
+
+        .stat-number {
+            font-family: 'Syncopate';
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
         /* BENCHMARKS SECTION */
         .benchmarks {
             min-height: 100vh;
@@ -519,6 +581,222 @@
             color: var(--accent-green);
             font-weight: 700;
             font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* TERMINAL SECTION */
+        .terminal-section {
+            padding: 10rem 5%;
+            background: linear-gradient(180deg, var(--primary) 0%, rgba(0,0,0,0.5) 100%);
+        }
+
+        .terminal {
+            background: #0a0a0a;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 10px;
+            padding: 2rem;
+            font-family: 'JetBrains Mono';
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,212,255,0.1);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27ca40; }
+
+        .terminal-title {
+            margin-left: auto;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .terminal-body {
+            color: var(--accent-cyan);
+            line-height: 1.8;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal-line.success { color: var(--accent-green); }
+        .terminal-line.info { color: var(--text-dim); }
+        .terminal-line.command { 
+            color: var(--accent-cyan);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .terminal-line.command:hover {
+            background: rgba(0,212,255,0.1);
+            padding-left: 10px;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: var(--accent-cyan);
+            animation: terminalBlink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        @keyframes terminalBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* PHONE MOCKUP SECTION */
+        .phone-section {
+            padding: 10rem 5%;
+            background: radial-gradient(ellipse at center, rgba(0,102,255,0.05) 0%, transparent 70%);
+        }
+
+        .phone-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+            flex-wrap: wrap;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background: #000;
+            border: 3px solid #333;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #050a14 0%, #0a1628 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .app-ui {
+            padding: 3rem 1.5rem;
+        }
+
+        .app-header {
+            color: var(--accent-cyan);
+            font-family: 'Syncopate';
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .app-status {
+            background: rgba(0,255,157,0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-status-label {
+            color: var(--accent-green);
+            font-size: 0.7rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .app-status-value {
+            color: white;
+            font-family: 'JetBrains Mono';
+            font-size: 1.2rem;
+        }
+
+        .app-metric {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-metric-label {
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .app-metric-value {
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono';
+            font-size: 1.1rem;
+        }
+
+        .phone-features {
+            max-width: 400px;
+        }
+
+        .phone-features h3 {
+            font-family: 'Syncopate';
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .phone-features p {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent-cyan);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
         }
 
         /* Matrix Section */
@@ -930,7 +1208,7 @@
             border-left: 3px solid var(--accent-cyan);
         }
 
-        /* Performance Metrics */
+        /* PERFORMANCE METRICS - FIXED */
         .performance {
             padding: 10rem 5%;
             background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
@@ -976,6 +1254,71 @@
             color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.1rem;
+        }
+
+        /* WAITLIST SECTION */
+        .waitlist {
+            padding: 10rem 5%;
+            background: linear-gradient(180deg, var(--primary) 0%, rgba(0,212,255,0.05) 50%, var(--primary) 100%);
+            text-align: center;
+        }
+
+        .waitlist h3 {
+            font-family: 'Syncopate';
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .waitlist > p {
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .waitlist-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            flex-wrap: wrap;
+        }
+
+        .waitlist-form input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 5px;
+            flex: 1;
+            font-family: 'JetBrains Mono';
+            font-size: 1rem;
+            min-width: 250px;
+        }
+
+        .waitlist-form input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .waitlist-form input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
         }
 
         /* Contact Section */
@@ -1240,12 +1583,12 @@
                 min-height: auto;
             }
             
-            .benchmark-grid {
+            .benchmark-grid, .stats-grid, .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .phone-container {
+                flex-direction: column;
             }
         }
 
@@ -1284,7 +1627,7 @@
                 transform: rotate(-45deg) translate(6px, -6px);
             }
             
-            .benchmark-grid {
+            .benchmark-grid, .stats-grid, .metrics-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1310,10 +1653,6 @@
                 margin-bottom: 2rem;
             }
             
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-            
             body {
                 cursor: auto;
             }
@@ -1322,7 +1661,7 @@
                 display: none;
             }
             
-            .btn {
+            .btn, #themeToggle {
                 cursor: pointer;
             }
         }
@@ -1350,6 +1689,7 @@
             <li><a href="#matrix">Matrix</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><button id="themeToggle">◐ MODE</button></li>
         </ul>
         <div class="mobile-toggle" id="mobileToggle">
             <span></span>
@@ -1391,97 +1731,215 @@
         </div>
     </section>
 
-<!-- BENCHMARKS SECTION - WITH INLINE STYLES FOR IMMEDIATE VISIBILITY -->
-<section class="benchmarks" id="benchmarks">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-label">Performance Data</div>
-            <h2 class="section-title">Key<br>Benchmarks</h2>
-        </div>
-
-        <div class="benchmark-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem;">
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">⚡</div>
-                <div class="benchmark-value">2.3<span>ms</span></div>
-                <div class="benchmark-label">Average Latency</div>
-                <div class="benchmark-desc">End-to-end signal processing from acquisition to eligibility output</div>
-                <div class="benchmark-comparison">
-                    <span class="better">↓ 85%</span> faster than traditional
+    <!-- LIVE STATS SECTION -->
+    <section class="live-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="2847" style="color: var(--accent-cyan);">0</div>
+                    <div class="stat-label">Active Nodes</div>
                 </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">🎯</div>
-                <div class="benchmark-value">±0.8<span>ms</span></div>
-                <div class="benchmark-label">Clock Drift</div>
-                <div class="benchmark-desc">Maximum deviation across federated node network with Kalman filtering</div>
-                <div class="benchmark-comparison">
-                    <span class="better">↓ 92%</span> vs NTP baseline
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15420" style="color: var(--accent-green);">0</div>
+                    <div class="stat-label">TPS This Hour</div>
                 </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">🚀</div>
-                <div class="benchmark-value">47.5<span>k</span></div>
-                <div class="benchmark-label">TPS Per Node</div>
-                <div class="benchmark-desc">Transactions per second per synchronization peer at peak load</div>
-                <div class="benchmark-comparison">
-                    <span class="better">↑ 340%</span> vs blockchain
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99.99" style="color: var(--accent-purple);">0</div>
+                    <div class="stat-label">Uptime %</div>
                 </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">🧠</div>
-                <div class="benchmark-value">99.97<span>%</span></div>
-                <div class="benchmark-label">Intent Accuracy</div>
-                <div class="benchmark-desc">Correct prediction using absence-weighted signals</div>
-                <div class="benchmark-comparison">
-                    <span class="better">↑ 23%</span> vs explicit-only
-                </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">⏱️</div>
-                <div class="benchmark-value">423<span>ms</span></div>
-                <div class="benchmark-label">Settlement Time</div>
-                <div class="benchmark-desc">From auction initiation to value transfer completion</div>
-                <div class="benchmark-comparison">
-                    <span class="better">↓ 76%</span> faster than traditional
-                </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">🔒</div>
-                <div class="benchmark-value">Zero</div>
-                <div class="benchmark-label">Data Exposure</div>
-                <div class="benchmark-desc">Raw signal disclosure via zero-knowledge proofs</div>
-                <div class="benchmark-comparison">
-                    <span class="better">100%</span> privacy guaranteed
-                </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">💎</div>
-                <div class="benchmark-value">68.4<span>idx</span></div>
-                <div class="benchmark-label">Scarcity Index</div>
-                <div class="benchmark-desc">Token scarcity at Day 7 halving interval</div>
-                <div class="benchmark-comparison">
-                    <span class="better">↑</span> Velocity-driven curve
-                </div>
-            </div>
-
-            <div class="benchmark-card" style="opacity: 1; visibility: visible;">
-                <div class="benchmark-icon">🌐</div>
-                <div class="benchmark-value">99.99<span>%</span></div>
-                <div class="benchmark-label">Network Uptime</div>
-                <div class="benchmark-desc">Federated node availability across global network</div>
-                <div class="benchmark-comparison">
-                    <span class="better">SLA</span> guaranteed
+                <div class="stat-item">
+                    <div class="stat-number" data-target="423" style="color: var(--accent-pink);">0</div>
+                    <div class="stat-label">MS Settlement</div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- BENCHMARKS SECTION -->
+    <section class="benchmarks" id="benchmarks">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Performance Data</div>
+                <h2 class="section-title">Key<br>Benchmarks</h2>
+            </div>
+
+            <div class="benchmark-grid">
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">⚡</div>
+                    <div class="benchmark-value">2.3<span>ms</span></div>
+                    <div class="benchmark-label">Average Latency</div>
+                    <div class="benchmark-desc">End-to-end signal processing from acquisition to eligibility output</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">↓ 85%</span> faster than traditional
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">🎯</div>
+                    <div class="benchmark-value">±0.8<span>ms</span></div>
+                    <div class="benchmark-label">Clock Drift</div>
+                    <div class="benchmark-desc">Maximum deviation across federated node network with Kalman filtering</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">↓ 92%</span> vs NTP baseline
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">🚀</div>
+                    <div class="benchmark-value">47.5<span>k</span></div>
+                    <div class="benchmark-label">TPS Per Node</div>
+                    <div class="benchmark-desc">Transactions per second per synchronization peer at peak load</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">↑ 340%</span> vs blockchain
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">🧠</div>
+                    <div class="benchmark-value">99.97<span>%</span></div>
+                    <div class="benchmark-label">Intent Accuracy</div>
+                    <div class="benchmark-desc">Correct prediction using absence-weighted signals</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">↑ 23%</span> vs explicit-only
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">⏱️</div>
+                    <div class="benchmark-value">423<span>ms</span></div>
+                    <div class="benchmark-label">Settlement Time</div>
+                    <div class="benchmark-desc">From auction initiation to value transfer completion</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">↓ 76%</span> faster than traditional
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">🔒</div>
+                    <div class="benchmark-value">Zero</div>
+                    <div class="benchmark-label">Data Exposure</div>
+                    <div class="benchmark-desc">Raw signal disclosure via zero-knowledge proofs</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">100%</span> privacy guaranteed
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">💎</div>
+                    <div class="benchmark-value">68.4<span>idx</span></div>
+                    <div class="benchmark-label">Scarcity Index</div>
+                    <div class="benchmark-desc">Token scarcity at Day 7 halving interval</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">↑</span> Velocity-driven curve
+                    </div>
+                </div>
+
+                <div class="benchmark-card" style="opacity: 1; visibility: visible;">
+                    <div class="benchmark-icon">🌐</div>
+                    <div class="benchmark-value">99.99<span>%</span></div>
+                    <div class="benchmark-label">Network Uptime</div>
+                    <div class="benchmark-desc">Federated node availability across global network</div>
+                    <div class="benchmark-comparison">
+                        <span class="better">SLA</span> guaranteed
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMINAL SECTION -->
+    <section class="terminal-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+                <div class="section-label" style="justify-content: center;">Developer Interface</div>
+                <h2 class="section-title">Try TISE<br>CLI</h2>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">tise-cli v2.4.1 — bash — 80x24</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line command" onclick="typeCommand(this)">> initialize_tise_node --sync temporal</div>
+                    <div class="terminal-line success">✓ Node registered | ID: 0x7f3a...9d2e</div>
+                    <div class="terminal-line info">✓ Clock drift: ±0.3ms | Latency: 2.1ms</div>
+                    <div class="terminal-line info">✓ Intent stream: ACTIVE | 47.5k TPS</div>
+                    <div class="terminal-line info">✓ Zero-knowledge proofs: ENABLED</div>
+                    <div class="terminal-line success">✓ Connected to federated mesh (2,847 nodes)</div>
+                    <div class="terminal-line command" onclick="typeCommand(this)" style="margin-top: 1rem;">> mint_temporal_token --validity 150ms</div>
+                    <div class="terminal-line success">✓ Token minted | Hash: 0x9e2b...4f1a | Expires: 150ms</div>
+                    <div class="terminal-line" style="margin-top: 1rem;">
+                        <span id="terminalInput"></span><span class="terminal-cursor"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHONE MOCKUP SECTION -->
+    <section class="phone-section">
+        <div class="container">
+            <div class="phone-container">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="app-ui">
+                            <div class="app-header">
+                                <span>◈</span> TISE
+                            </div>
+                            <div class="app-status">
+                                <div class="app-status-label">● SYNCED TO NETWORK</div>
+                                <div class="app-status-value">Block 4,291,847</div>
+                            </div>
+                            <div class="app-metric">
+                                <div class="app-metric-label">CLOCK DRIFT</div>
+                                <div class="app-metric-value">±0.8 ms</div>
+                            </div>
+                            <div class="app-metric">
+                                <div class="app-metric-label">TOKEN VALIDITY</div>
+                                <div class="app-metric-value">143 ms remaining</div>
+                            </div>
+                            <div class="app-metric">
+                                <div class="app-metric-label">INTENT SIGNALS</div>
+                                <div class="app-metric-value">12,847 / sec</div>
+                            </div>
+                            <div class="app-metric">
+                                <div class="app-metric-label">SETTLEMENT</div>
+                                <div class="app-metric-value">423 ms avg</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-features">
+                    <h3>Edge Native</h3>
+                    <p>TISE runs directly on device hardware with ARM TrustZone security. No cloud dependency. No latency. Pure temporal synchronization at the edge.</p>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <div>
+                            <strong style="color: var(--accent-cyan);">Secure Enclave</strong><br>
+                            <span style="color: var(--text-dim); font-size: 0.9rem;">Hardware-grade encryption</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <div>
+                            <strong style="color: var(--accent-green);">Sub-millisecond</strong><br>
+                            <span style="color: var(--text-dim); font-size: 0.9rem;">Local processing only</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌐</span>
+                        <div>
+                            <strong style="color: var(--accent-purple);">Mesh Network</strong><br>
+                            <span style="color: var(--text-dim); font-size: 0.9rem;">Self-healing topology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- TECHNOLOGY STACK -->
     <section class="tech-stack" id="technology">
@@ -1587,7 +2045,7 @@
                             <td class="metric-value">—</td>
                             <td class="metric-value">—</td>
                             <td class="metric-value">Adaptive</td>
-                            <td><span class="badge badge-high">High</span></td>
+                            td><span class="badge badge-high">High</span></td>
                         </tr>
                         <tr>
                             <td class="metric-name">Clock Synchronization</td>
@@ -1800,7 +2258,7 @@
         </div>
     </section>
 
-    <!-- PERFORMANCE METRICS -->
+    <!-- PERFORMANCE METRICS - FIXED WITH INLINE STYLES -->
     <section class="performance" id="performance">
         <div class="container">
             <div class="section-header" style="text-align: center;">
@@ -1808,38 +2266,61 @@
                 <h2 class="section-title">Performance<br>Indicators</h2>
             </div>
             
-            <div class="metrics-grid">
-                <div class="metric-card">
+            <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem;">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">150<span style="font-size: 1rem;">ms</span></div>
                     <div class="metric-label">Token Validity</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">±1<span style="font-size: 1rem;">ms</span></div>
                     <div class="metric-label">Clock Sync UTC</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">&lt;500<span style="font-size: 1rem;">ms</span></div>
                     <div class="metric-label">Settlement Time</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">ZK</div>
                     <div class="metric-label">Privacy Protocol</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">Vickrey</div>
                     <div class="metric-label">Auction Type</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">ARM</div>
                     <div class="metric-label">TrustZone Enclave</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">256<span style="font-size: 1rem;">bit</span></div>
                     <div class="metric-label">Encryption</div>
                 </div>
-                <div class="metric-card">
+                <div class="metric-card" style="opacity: 1; visibility: visible;">
                     <div class="metric-value">∞</div>
                     <div class="metric-label">Node Scaling</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST SECTION -->
+    <section class="waitlist">
+        <div class="container">
+            <h3>Join the Network</h3>
+            <p>Get early access to DTIF SDK, documentation, and developer tools</p>
+            <form class="waitlist-form" onsubmit="event.preventDefault(); alert('Access request submitted. Check your email.');">
+                <input type="email" placeholder="enter@email.com" required>
+                <button type="submit" class="btn btn-primary">REQUEST ACCESS</button>
+            </form>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span>🔒</span> SOC 2 Compliant
+                </div>
+                <div class="trust-badge">
+                    <span>⚡</span> 99.99% Uptime SLA
+                </div>
+                <div class="trust-badge">
+                    <span>🌐</span> Global Edge Network
                 </div>
             </div>
         </div>
@@ -1921,7 +2402,7 @@
             });
         });
 
-        document.querySelectorAll('a, button, .tech-card, .benchmark-card, .metric-card').forEach(el => {
+        document.querySelectorAll('a, button, .tech-card, .benchmark-card, .metric-card, .stat-item, .feature-item').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
@@ -2025,6 +2506,21 @@
                 delay: 1.5
             });
 
+            // Live stats counter animation
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                gsap.to(counter, {
+                    innerHTML: target,
+                    duration: 2,
+                    snap: { innerHTML: target % 1 === 0 ? 1 : 0.01 },
+                    scrollTrigger: {
+                        trigger: counter,
+                        start: 'top 80%'
+                    }
+                });
+            });
+
             document.querySelectorAll('.tech-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
@@ -2053,6 +2549,19 @@
                 y: 50,
                 opacity: 0,
                 duration: 1,
+                ease: "power3.out"
+            });
+
+            gsap.from('.stat-item', {
+                scrollTrigger: {
+                    trigger: '.stats-grid',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
                 ease: "power3.out"
             });
 
@@ -2107,18 +2616,7 @@
                 ease: "none"
             });
 
-            gsap.from('.metric-card', {
-                scrollTrigger: {
-                    trigger: '.metrics-grid',
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                },
-                scale: 0.8,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: "back.out(1.7)"
-            });
+            // Metric cards animation removed since they're visible by default
 
             gsap.from('.contact-orb', {
                 scrollTrigger: {
@@ -2132,6 +2630,37 @@
                 ease: "elastic.out(1, 0.5)"
             });
         }
+
+        // Terminal typing effect
+        function typeCommand(element) {
+            const text = element.textContent;
+            const input = document.getElementById('terminalInput');
+            input.textContent = '';
+            let i = 0;
+            const interval = setInterval(() => {
+                input.textContent += text[i];
+                i++;
+                if (i >= text.length) clearInterval(interval);
+            }, 50);
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        let isDark = true;
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            if (!isDark) {
+                document.documentElement.style.setProperty('--primary', '#f0f4f8');
+                document.documentElement.style.setProperty('--text', '#0a0a0a');
+                document.documentElement.style.setProperty('--text-dim', 'rgba(0,0,0,0.6)');
+                document.body.style.background = '#f0f4f8';
+            } else {
+                document.documentElement.style.setProperty('--primary', '#050a14');
+                document.documentElement.style.setProperty('--text', '#ffffff');
+                document.documentElement.style.setProperty('--text-dim', 'rgba(255,255,255,0.6)');
+                document.body.style.background = '#050a14';
+            }
+        });
 
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
