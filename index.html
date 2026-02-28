@@ -885,7 +885,7 @@
             border: 1px solid rgba(255, 230, 0, 0.3);
         }
 
-        /* Tech Stack Section */
+        /* Tech Stack Section - FIXED FOR MOBILE TAP */
         .tech-stack {
             min-height: 100vh;
             padding: 10rem 5%;
@@ -907,10 +907,13 @@
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             min-height: 600px;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
 
         .tech-card::before {
@@ -927,13 +930,27 @@
             pointer-events: none;
         }
 
-        .tech-card:hover::before {
+        .tech-card:hover::before,
+        .tech-card.active::before {
             opacity: 1;
         }
 
         .tech-card.dtif { border-color: rgba(30, 136, 229, 0.3); }
         .tech-card.tise { border-color: rgba(67, 160, 71, 0.3); }
         .tech-card.tide { border-color: rgba(255, 0, 170, 0.3); }
+
+        .tech-card.dtif.active { 
+            border-color: var(--dtif-blue); 
+            box-shadow: 0 0 40px rgba(30, 136, 229, 0.4);
+        }
+        .tech-card.tise.active { 
+            border-color: var(--tise-green); 
+            box-shadow: 0 0 40px rgba(67, 160, 71, 0.4);
+        }
+        .tech-card.tide.active { 
+            border-color: var(--tide-pink); 
+            box-shadow: 0 0 40px rgba(255, 0, 170, 0.4);
+        }
 
         .card-glow {
             position: absolute;
@@ -951,7 +968,8 @@
         .tech-card.tise .card-glow { --glow-color: rgba(67, 160, 71, 0.15); }
         .tech-card.tide .card-glow { --glow-color: rgba(255, 0, 170, 0.15); }
 
-        .tech-card:hover .card-glow {
+        .tech-card:hover .card-glow,
+        .tech-card.active .card-glow {
             opacity: 1;
         }
 
@@ -968,6 +986,11 @@
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .tech-card.active .card-icon {
+            transform: scale(1.1);
         }
 
         .dtif .card-icon {
@@ -1013,7 +1036,12 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            transition: color 0.3s;
         }
+
+        .tech-card.active.dtif .card-title { color: var(--dtif-blue); }
+        .tech-card.active.tise .card-title { color: var(--tise-green); }
+        .tech-card.active.tide .card-title { color: var(--tide-pink); }
 
         .card-subtitle {
             font-family: 'JetBrains Mono', monospace;
@@ -1029,10 +1057,24 @@
             line-height: 1.7;
             margin-bottom: 2rem;
             flex-grow: 1;
+            transition: all 0.3s;
+        }
+
+        .tech-card.active .card-description {
+            color: var(--text);
         }
 
         .feature-list {
             list-style: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s;
+            opacity: 0;
+        }
+
+        .tech-card.active .feature-list {
+            max-height: 500px;
+            opacity: 1;
         }
 
         .feature-list li {
@@ -1043,7 +1085,20 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.9rem;
             transition: all 0.3s;
+            transform: translateX(-20px);
+            opacity: 0;
         }
+
+        .tech-card.active .feature-list li {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .tech-card.active .feature-list li:nth-child(1) { transition-delay: 0.1s; }
+        .tech-card.active .feature-list li:nth-child(2) { transition-delay: 0.15s; }
+        .tech-card.active .feature-list li:nth-child(3) { transition-delay: 0.2s; }
+        .tech-card.active .feature-list li:nth-child(4) { transition-delay: 0.25s; }
+        .tech-card.active .feature-list li:nth-child(5) { transition-delay: 0.3s; }
 
         .feature-list li:hover {
             padding-left: 10px;
@@ -1054,11 +1109,37 @@
             content: '▹';
             color: var(--accent-cyan);
             font-size: 1.2rem;
+            transition: color 0.3s;
         }
 
-        .dtif .feature-list li:hover::before { color: var(--dtif-blue); }
-        .tise .feature-list li:hover::before { color: var(--tise-green); }
-        .tide .feature-list li:hover::before { color: var(--tide-pink); }
+        .dtif .feature-list li::before { color: var(--dtif-blue); }
+        .tise .feature-list li::before { color: var(--tise-green); }
+        .tide .feature-list li::before { color: var(--tide-pink); }
+
+        .card-hint {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            opacity: 0.7;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-card.active .card-hint {
+            opacity: 0;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        .card-hint::after {
+            content: '👆';
+            font-size: 1rem;
+        }
 
         /* Process Flow Section */
         .process {
@@ -1581,6 +1662,21 @@
             
             .tech-card {
                 min-height: auto;
+                padding-bottom: 4rem;
+            }
+            
+            .feature-list {
+                max-height: none;
+                opacity: 1;
+            }
+            
+            .feature-list li {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            
+            .card-hint {
+                display: none;
             }
             
             .benchmark-grid, .stats-grid, .metrics-grid {
@@ -1661,8 +1757,16 @@
                 display: none;
             }
             
-            .btn, #themeToggle {
+            .btn, #themeToggle, .tech-card {
                 cursor: pointer;
+            }
+
+            .tech-card {
+                transform: none !important;
+            }
+
+            .tech-card.active {
+                transform: scale(1.02) !important;
             }
         }
     </style>
@@ -1941,7 +2045,7 @@
         </div>
     </section>
 
-    <!-- TECHNOLOGY STACK -->
+    <!-- TECHNOLOGY STACK - FIXED SYSTEM OVERVIEW -->
     <section class="tech-stack" id="technology">
         <div class="container">
             <div class="section-header">
@@ -1950,7 +2054,7 @@
             </div>
             
             <div class="cards-container">
-                <div class="tech-card dtif" data-tilt>
+                <div class="tech-card dtif" data-card="dtif">
                     <div class="card-glow"></div>
                     <div class="card-icon">01</div>
                     <h3 class="card-title">DTIF</h3>
@@ -1967,9 +2071,10 @@
                         <li>Execution Eligibility Generator (140)</li>
                         <li>Privacy Preservation Layer (150)</li>
                     </ul>
+                    <div class="card-hint">Tap to explore</div>
                 </div>
 
-                <div class="tech-card tise" data-tilt>
+                <div class="tech-card tise" data-card="tise">
                     <div class="card-glow"></div>
                     <div class="card-icon">02</div>
                     <h3 class="card-title">TISE</h3>
@@ -1986,9 +2091,10 @@
                         <li>Auction Mempool (240)</li>
                         <li>Settlement Oracle (250)</li>
                     </ul>
+                    <div class="card-hint">Tap to explore</div>
                 </div>
 
-                <div class="tech-card tide" data-tilt>
+                <div class="tech-card tide" data-card="tide">
                     <div class="card-glow"></div>
                     <div class="card-icon">03</div>
                     <h3 class="card-title">OnTime-TIDE</h3>
@@ -2005,6 +2111,7 @@
                         <li>Scarcity Formation Signals</li>
                         <li>Smart Contract Bridge</li>
                     </ul>
+                    <div class="card-hint">Tap to explore</div>
                 </div>
             </div>
         </div>
@@ -2045,7 +2152,7 @@
                             <td class="metric-value">—</td>
                             <td class="metric-value">—</td>
                             <td class="metric-value">Adaptive</td>
-                            td><span class="badge badge-high">High</span></td>
+                            <td><span class="badge badge-high">High</span></td>
                         </tr>
                         <tr>
                             <td class="metric-name">Clock Synchronization</td>
@@ -2404,7 +2511,7 @@
 
         document.querySelectorAll('a, button, .tech-card, .benchmark-card, .metric-card, .stat-item, .feature-item').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            el.addEventListener('mouseleave', () => cursor.class.remove('hover'));
         });
 
         // Three.js Background
@@ -2473,6 +2580,85 @@
             });
         }
 
+        // FIXED SYSTEM OVERVIEW - Card Interactions
+        function initCardInteractions() {
+            const cards = document.querySelectorAll('.tech-card');
+            let activeCard = null;
+
+            cards.forEach(card => {
+                // Mouse hover effects (desktop)
+                card.addEventListener('mousemove', (e) => {
+                    if (window.innerWidth <= 768) return; // Disable tilt on mobile
+                    
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+                    card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    if (window.innerWidth <= 768) return;
+                    if (!card.classList.contains('active')) {
+                        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                    }
+                });
+
+                // Click/Tap handler (both desktop and mobile)
+                card.addEventListener('click', (e) => {
+                    // If clicking the same card, toggle it off
+                    if (activeCard === card) {
+                        card.classList.remove('active');
+                        card.style.transform = window.innerWidth > 768 ? 'perspective(1000px) rotateX(0) rotateY(0)' : '';
+                        activeCard = null;
+                    } else {
+                        // Remove active from previous card
+                        if (activeCard) {
+                            activeCard.classList.remove('active');
+                            activeCard.style.transform = window.innerWidth > 768 ? 'perspective(1000px) rotateX(0) rotateY(0)' : '';
+                        }
+                        
+                        // Activate clicked card
+                        card.classList.add('active');
+                        activeCard = card;
+                        
+                        // Smooth scroll to card on mobile
+                        if (window.innerWidth <= 768) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                });
+
+                // Touch events for mobile
+                card.addEventListener('touchstart', (e) => {
+                    card.style.transform = 'scale(0.98)';
+                }, {passive: true});
+
+                card.addEventListener('touchend', (e) => {
+                    if (!card.classList.contains('active')) {
+                        card.style.transform = '';
+                    } else {
+                        card.style.transform = 'scale(1.02)';
+                    }
+                }, {passive: true});
+            });
+
+            // Close cards when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.tech-card') && activeCard) {
+                    activeCard.classList.remove('active');
+                    activeCard.style.transform = window.innerWidth > 768 ? 'perspective(1000px) rotateX(0) rotateY(0)' : '';
+                    activeCard = null;
+                }
+            });
+        }
+
         // Initialize animations
         function initAnimations() {
             initThree();
@@ -2521,24 +2707,8 @@
                 });
             });
 
-            document.querySelectorAll('.tech-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
-                    card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-                });
-            });
+            // Initialize card interactions
+            initCardInteractions();
 
             gsap.from('.section-header', {
                 scrollTrigger: {
@@ -2615,8 +2785,6 @@
                 height: '100%',
                 ease: "none"
             });
-
-            // Metric cards animation removed since they're visible by default
 
             gsap.from('.contact-orb', {
                 scrollTrigger: {
